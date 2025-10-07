@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clarity LeadGen — AI-gedreven B2B leadgeneratie</title>
+  <meta name="description" content="Clarity LeadGen (CLG) helpt B2B SaaS en tech scale-ups met AI-gedreven leadgeneratie: targeted outreach, data-enrichment en schaalbare groei. Transparant en voorspelbaar." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://clarityleadgen.com/" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clg: {
+              ink: '#0F172A',
+              surface: '#FFFFFF',
+              subsurface: '#F8FAFC',
+              dark: '#0B0F1A',
+              darkAlt: '#0F172A',
+              primary: '#2563EB',
+              primaryDark: '#1D4ED8',
+              sky: '#0EA5E9',
+              cyan: '#22D3EE',
+              accent: '#22C55E',
+              amber: '#F59E0B',
+              border: '#E2E8F0'
+            }
+          },
+          boxShadow: {
+            soft: '0 12px 32px rgba(2,6,23,0.08)',
+            lift: '0 18px 50px rgba(2,6,23,0.12)'
+          },
+          borderRadius: {
+            'xl': '1rem',
+            '2xl': '1.25rem',
+            '3xl': '1.75rem'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Zwarte randen site-wide */
+    input, textarea, select {
+      border: 1px solid #000 !important;
+      padding: 0.75rem;
+      border-radius: 0.75rem;
+      background: #fff;
+      color: #0F172A;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #000 !important;
+      box-shadow: 0 0 0 1px #000;
+    }
+    .border, [class*=" border-"], [class^="border-"] {
+      border-color: #000 !important;
+      border-width: 1px !important;
+    }
+    table, th, td { border: 1px solid #000 !important; }
+    details { border: 1px solid #000 !important; border-radius: 0.75rem; }
+
+    .bg-grid {
+      background-image: radial-gradient(circle at 1px 1px, rgba(226,232,240,0.8) 1px, transparent 0);
+      background-size: 18px 18px;
+    }
+    .blob { filter: blur(0px); }
+  </style>
+</head>
+<body class="antialiased text-clg-ink">
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-clg-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <img src="logo-clg.jpeg" alt="Clarity LeadGen" class="h-8 w-auto hidden sm:block" onerror="this.style.display='none'">
+        <div class="sm:hidden w-8 h-8 rounded-lg bg-clg-primary grid place-items-center text-white font-bold">C</div>
+        <span class="font-semibold">Clarity LeadGen</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#services" class="hover:text-clg-primaryDark">Services</a>
+        <a href="#approach" class="hover:text-clg-primaryDark">Aanpak</a>
+        <a href="#results" class="hover:text-clg-primaryDark">Resultaten</a>
+        <a href="#about" class="hover:text-clg-primaryDark">Over ons</a>
+        <a href="#contact" class="hover:text-clg-primaryDark">Contact</a>
+      </nav>
+      <div class="hidden md:flex">
+        <a href="https://calendly.com/your-calendly/intro" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-gradient-to-r from-clg-sky to-clg-cyan text-black font-medium shadow-soft hover:shadow-lift transition">
+          Plan een gesprek
+        </a>
+      </div>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-clg-border" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative isolate overflow-hidden bg-clg-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Pipeline die je voelt in je forecast</h1>
+          <p class="mt-5 text-slate-300 text-lg max-w-xl">AI-gedreven outbound met studio-strakke uitvoering. Slimme data, sterke copy en deliverability die scoort. Focus op afspraken en omzet.</p>
+          <div class="mt-8 flex gap-3">
+            <a href="https://calendly.com/your-calendly/intro" target="_blank" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-clg-sky to-clg-cyan text-black font-medium shadow-soft hover:shadow-lift transition">Plan een kennismaking</a>
+            <a href="#services" class="px-6 py-3 rounded-2xl border text-slate-200 hover:bg-white/5">Bekijk services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 bg-clg-subsurface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold">Services</h2>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-white shadow-soft hover:shadow-lift transition">
+          <h3 class="font-semibold">Email Outreach Campaigns</h3>
+          <p class="mt-2 text-sm text-slate-600">Hyper-gepersonaliseerde sequences met slimme timing en cadans.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white shadow-soft hover:shadow-lift transition">
+          <h3 class="font-semibold">Lead Enrichment & Validatie</h3>
+          <p class="mt-2 text-sm text-slate-600">Schoon, valide en rijk datafundament met intent-signalen.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white shadow-soft hover:shadow-lift transition">
+          <h3 class="font-semibold">Campagne Management</h3>
+          <p class="mt-2 text-sm text-slate-600">Van setup tot optimalisatie, wij monitoren en schalen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-clg-subsurface">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold">Plan een gesprek</h2>
+      <div class="mt-8 grid lg:grid-cols-2 gap-8">
+        <form id="contactForm" class="p-6 rounded-2xl bg-white shadow-soft">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm text-slate-600">Naam</label>
+              <input required name="name" type="text" />
+            </div>
+            <div>
+              <label class="block text-sm text-slate-600">Bedrijf</label>
+              <input name="company" type="text" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm text-slate-600">E-mail</label>
+              <input required name="email" type="email" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm text-slate-600">Wat wil je bereiken?</label>
+              <textarea name="message" rows="4" placeholder="Korte context over ICP, doelen en tijdlijn"></textarea>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center gap-3">
+            <button type="submit" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-clg-sky to-clg-cyan text-black font-medium shadow-soft">Verstuur</button>
+            <a href="https://calendly.com/your-calendly/intro" target="_blank" class="px-6 py-3 rounded-2xl border">Of boek direct via Calendly</a>
+          </div>
+          <p id="formStatus" class="mt-3 text-sm text-slate-500"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 border-t bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-600">
+      <p>© <span id="year"></span> Clarity LeadGen. Alle rechten voorbehouden.</p>
+      <nav class="flex items-center gap-4">
+        <a href="#" class="hover:underline">Privacy</a>
+        <a href="#" class="hover:underline">Terms</a>
+        <a href="mailto:info@clarityleadgen.com" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Contact form mailto fallback
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('formStatus');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      const subject = encodeURIComponent(`[CLG] Nieuw contact — ${data.name || ''} @ ${data.company || ''}`);
+      const body = encodeURIComponent(`Naam: ${data.name || ''}\\nBedrijf: ${data.company || ''}\\nE-mail: ${data.email || ''}\\n\\nBericht:\\n${data.message || ''}`);
+      window.location.href = `mailto:info@clarityleadgen.com?subject=${subject}&body=${body}`;
+      statusEl.textContent = 'Dank! Je e-mailclient is geopend. We reageren snel.';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
