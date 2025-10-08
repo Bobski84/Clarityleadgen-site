@@ -165,6 +165,7 @@
       padding: 16px 24px;
       max-width: 1200px;
       margin: 0 auto;
+      gap: 16px;
     }
 
     @media (min-width: 768px) {
@@ -172,7 +173,7 @@
     }
 
     .header__logo {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       font-weight: 700;
       font-size: 20px;
@@ -183,12 +184,25 @@
       background-clip: text;
     }
 
+    /* Logo sizing */
+    .logo {
+      max-height: 48px;   /* pas aan naar smaak (40–56px werkt vaak mooi) */
+      width: auto;        /* behoudt verhoudingen */
+      display: block;     /* voorkomt extra witruimte onder img */
+    }
+    @media (min-width: 768px) {
+      .logo { max-height: 56px; }
+    }
+
     .header__menu-toggle {
       display: block;
       width: 32px;
       height: 32px;
       position: relative;
       z-index: 1001;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
     }
 
     @media (min-width: 1024px) {
@@ -825,6 +839,7 @@
       border-radius: 8px;
       color: #fff;
       text-align: center;
+      display: none;
     }
 
     /* LIVE CHAT BUTTON */
@@ -845,6 +860,7 @@
       cursor: pointer;
       z-index: 999;
       transition: all 0.3s ease;
+      border: 0;
     }
 
     .chat-button:hover {
@@ -1023,13 +1039,13 @@
 <body>
 
   <!-- HEADER -->
-<header class="header" id="header">
-  <div class="header__container">
-    <a href="#hero" class="header__logo" aria-label="Naar home">
-      <img src="logo-clg.png" alt="Clarity LeadGen logo" class="logo" />
-    </a>
-  </div>
-   
+  <header class="header" id="header">
+    <div class="header__container">
+      <a href="#hero" class="header__logo" aria-label="Naar home">
+        <!-- width/height helpen layout-stabiliteit; pas aan naar je echte bronafmetingen -->
+        <img src="logo-clg.png" alt="Clarity LeadGen logo" class="logo" width="320" height="80" />
+      </a>
+
       <button class="header__menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menu openen/sluiten">
         <span class="header__menu-icon"></span>
       </button>
@@ -1282,24 +1298,29 @@
         <div class="contact__divider" aria-hidden="true">of</div>
         
         <form class="contact__form" id="contactForm" action="https://formspree.io/f/xovknney" method="POST">
-  <div class="form__group">
-    <label for="name" class="form__label">Naam *</label>
-    <input type="text" id="name" name="name" class="form__input" required>
-  </div>
-  <div class="form__group">
-    <label for="company" class="form__label">Bedrijf *</label>
-    <input type="text" id="company" name="company" class="form__input" required>
-  </div>
-  <div class="form__group">
-    <label for="email" class="form__label">E-mail *</label>
-    <input type="email" id="email" name="email" class="form__input" required>
-  </div>
-  <div class="form__group">
-    <label for="message" class="form__label">Bericht</label>
-    <textarea id="message" name="message" class="form__textarea" rows="4"></textarea>
-  </div>
-  <button type="submit" class="btn btn--success btn--large">Versturen</button>
-</form>
+          <div class="form__group">
+            <label for="name" class="form__label">Naam *</label>
+            <input type="text" id="name" name="name" class="form__input" required>
+          </div>
+          <div class="form__group">
+            <label for="company" class="form__label">Bedrijf *</label>
+            <input type="text" id="company" name="company" class="form__input" required>
+          </div>
+          <div class="form__group">
+            <label for="email" class="form__label">E-mail *</label>
+            <input type="email" id="email" name="email" class="form__input" required>
+          </div>
+          <div class="form__group">
+            <label for="message" class="form__label">Bericht</label>
+            <textarea id="message" name="message" class="form__textarea" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn btn--success btn--large">Versturen</button>
+
+          <!-- Succesmelding voor JS -->
+          <div class="form__success" id="formSuccess">
+            <p>✓ Bedankt! We nemen binnen 24 uur contact op.</p>
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -1395,12 +1416,18 @@
     const formSuccess = document.getElementById('formSuccess');
 
     if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
+      contactForm.addEventListener('submit', async (e) => {
+        // Verander dit naar false als je Formspree native submit wilt gebruiken
+        const handleViaJS = true;
+
+        if (!handleViaJS) return; // laat de browser normaal submitten
+
         e.preventDefault();
         
         const name = document.getElementById('name').value.trim();
         const company = document.getElementById('company').value.trim();
         const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
         
         if (!name || !company || !email) {
           alert('Vul alle verplichte velden in.');
@@ -1412,14 +1439,25 @@
           alert('Voer een geldig e-mailadres in.');
           return;
         }
-        
-        formSuccess.style.display = 'block';
-        contactForm.reset();
-        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        
-        setTimeout(() => {
-          formSuccess.style.display = 'none';
-        }, 5000);
+
+        try {
+          const resp = await fetch(contactForm.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(contactForm)
+          });
+
+          if (resp.ok) {
+            formSuccess.style.display = 'block';
+            contactForm.reset();
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setTimeout(() => { formSuccess.style.display = 'none'; }, 5000);
+          } else {
+            alert('Er ging iets mis bij het versturen. Probeer het later opnieuw.');
+          }
+        } catch (err) {
+          alert('Netwerkfout. Controleer je verbinding en probeer opnieuw.');
+        }
       });
     }
 
