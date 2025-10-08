@@ -184,16 +184,16 @@
       background-clip: text;
     }
 
-    /* Logo sizing */
-    .logo {
-      max-height: 56px;   /* pas aan naar smaak (40–56px werkt vaak mooi) */
-      width: auto;        /* behoudt verhoudingen */
-      display: block;     /* voorkomt extra witruimte onder img */
-    }
-    @media (min-width: 768px) {
-      .logo { max-height: 56px; }
-    }
+   /* Logo sizing (forceer vaste hoogte) */
+.logo {
+  height: 64px;     /* was max-height: 48px */
+  width: auto;
+  display: block;
+}
 
+@media (min-width: 768px) {
+  .logo { height: 80px; }   /* was max-height: 56px */
+}
     .header__menu-toggle {
       display: block;
       width: 32px;
