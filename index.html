@@ -1281,33 +1281,25 @@
         
         <div class="contact__divider" aria-hidden="true">of</div>
         
-        <form class="contact__form" id="contactForm">
-          <div class="form__group">
-            <label for="name" class="form__label">Naam *</label>
-            <input type="text" id="name" name="name" class="form__input" required>
-          </div>
-          
-          <div class="form__group">
-            <label for="company" class="form__label">Bedrijf *</label>
-            <input type="text" id="company" name="company" class="form__input" required>
-          </div>
-          
-          <div class="form__group">
-            <label for="email" class="form__label">E-mail *</label>
-            <input type="email" id="email" name="email" class="form__input" required>
-          </div>
-          
-          <div class="form__group">
-            <label for="message" class="form__label">Bericht</label>
-            <textarea id="message" name="message" class="form__textarea" rows="4"></textarea>
-          </div>
-          
-          <button type="submit" class="btn btn--success btn--large">Versturen</button>
-          
-          <div class="form__success" id="formSuccess" style="display:none;">
-            <p>✓ Bedankt! We nemen binnen 24 uur contact op.</p>
-          </div>
-        </form>
+        <form class="contact__form" id="contactForm" action="https://formspree.io/f/xovknney" method="POST">
+  <div class="form__group">
+    <label for="name" class="form__label">Naam *</label>
+    <input type="text" id="name" name="name" class="form__input" required>
+  </div>
+  <div class="form__group">
+    <label for="company" class="form__label">Bedrijf *</label>
+    <input type="text" id="company" name="company" class="form__input" required>
+  </div>
+  <div class="form__group">
+    <label for="email" class="form__label">E-mail *</label>
+    <input type="email" id="email" name="email" class="form__input" required>
+  </div>
+  <div class="form__group">
+    <label for="message" class="form__label">Bericht</label>
+    <textarea id="message" name="message" class="form__textarea" rows="4"></textarea>
+  </div>
+  <button type="submit" class="btn btn--success btn--large">Versturen</button>
+</form>
       </div>
     </div>
   </section>
