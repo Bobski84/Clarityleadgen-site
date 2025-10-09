@@ -1,1066 +1,223 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Clarity LeadGen verzorgt AI-gedreven B2B leadgeneratie voor SaaS en tech scale-ups. Meer leads, voorspelbaar en op schaal.">
-  <title>Clarity LeadGen – Meer B2B leads, voorspelbaar en op schaal</title>
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clarity LeadGen delivers AI‑powered B2B lead generation for SaaS & tech scale‑ups. More leads, predictable and at scale." id="metaDescription" />
+  <title id="pageTitle">Clarity LeadGen – More B2B leads, predictable and at scale</title>
   <style>
     /* RESET & BASE */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
     }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #fff;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif; font-size: 16px; line-height: 1.6; color: #1a1a1a; background: #fff; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
     /* LAYOUT */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    @media (min-width: 768px) {
-      .container { padding: 0 48px; }
-    }
-
-    .section {
-      padding: 80px 0;
-    }
-
-    @media (min-width: 768px) {
-      .section { padding: 120px 0; }
-    }
-
-    .section__title {
-      font-size: 32px;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 16px;
-      text-align: center;
-      color: #0f172a;
-    }
-
-    @media (min-width: 768px) {
-      .section__title {
-        font-size: 42px;
-        margin-bottom: 24px;
-      }
-    }
-
-    .section__title--light {
-      color: #fff;
-    }
-
-    .section__intro {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #475569;
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 48px;
-    }
-
-    @media (min-width: 768px) {
-      .section__intro {
-        font-size: 20px;
-        margin-bottom: 64px;
-      }
-    }
-
-    .section__intro--light {
-      color: rgba(255, 255, 255, 0.9);
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    @media (min-width: 768px) { .container { padding: 0 48px; } }
+    .section { padding: 80px 0; }
+    @media (min-width: 768px) { .section { padding: 120px 0; } }
+    .section__title { font-size: 32px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; text-align: center; color: #0f172a; }
+    @media (min-width: 768px) { .section__title { font-size: 42px; margin-bottom: 24px; } }
+    .section__title--light { color: #fff; }
+    .section__intro { font-size: 18px; line-height: 1.6; color: #475569; text-align: center; max-width: 700px; margin: 0 auto 48px; }
+    @media (min-width: 768px) { .section__intro { font-size: 20px; margin-bottom: 64px; } }
+    .section__intro--light { color: rgba(255,255,255,0.9); }
 
     /* BUTTONS */
-    .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      font-size: 16px;
-      font-weight: 600;
-      text-align: center;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-      border: 2px solid transparent;
-    }
-
-    .btn--large {
-      padding: 18px 40px;
-      font-size: 18px;
-    }
-
-    .btn--primary {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
-    }
-
-    .btn--primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-    }
-
-    .btn--secondary {
-      background: transparent;
-      color: #0f172a;
-      border: 2px solid #cbd5e1;
-    }
-
-    .btn--secondary:hover {
-      background: #f8fafc;
-      border-color: #2563eb;
-      color: #2563eb;
-    }
-
-    .btn--success {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
-    }
-
-    .btn--success:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-    }
+    .btn { display: inline-block; padding: 14px 32px; font-size: 16px; font-weight: 600; text-align: center; border-radius: 8px; transition: all .3s ease; white-space: nowrap; border: 2px solid transparent; }
+    .btn--large { padding: 18px 40px; font-size: 18px; }
+    .btn--primary { background: linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%); color:#fff; box-shadow: 0 4px 14px rgba(37,99,235,.3); }
+    .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,.4); }
+    .btn--secondary { background: transparent; color:#0f172a; border: 2px solid #cbd5e1; }
+    .btn--secondary:hover { background:#f8fafc; border-color:#2563eb; color:#2563eb; }
+    .btn--success { background: linear-gradient(135deg,#10b981 0%,#059669 100%); color:#fff; box-shadow: 0 4px 14px rgba(16,185,129,.3); }
+    .btn--success:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16,185,129,.4); }
 
     /* HEADER */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e2e8f0;
-    }
+    .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e2e8f0; }
+    .header__container { display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1200px; margin:0 auto; gap:16px; }
+    @media (min-width:768px){ .header__container{ padding:20px 48px; } }
+    .header__logo { display:inline-flex; align-items:center; font-weight:700; font-size:20px; z-index:1001; background: linear-gradient(135deg,#2563eb 0%,#10b981 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .logo { height: 90px; width:auto; display:block; }
+    @media (min-width:768px){ .logo{ height:110px; } }
 
-    .header__container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 24px;
-      max-width: 1200px;
-      margin: 0 auto;
-      gap: 16px;
-    }
+    .header__menu-toggle { display:block; width:32px; height:32px; position:relative; z-index:1001; background:transparent; border:0; cursor:pointer; }
+    @media (min-width:1024px){ .header__menu-toggle{ display:none; } }
+    .header__menu-icon, .header__menu-icon::before, .header__menu-icon::after { display:block; width:24px; height:2px; background:#0f172a; position:absolute; left:4px; transition:all .3s ease; }
+    .header__menu-icon { top:15px; }
+    .header__menu-icon::before, .header__menu-icon::after { content:""; }
+    .header__menu-icon::before { top:-8px; }
+    .header__menu-icon::after { top:8px; }
+    .header__menu-toggle[aria-expanded="true"] .header__menu-icon { background:transparent; }
+    .header__menu-toggle[aria-expanded="true"] .header__menu-icon::before { transform: rotate(45deg); top:0; }
+    .header__menu-toggle[aria-expanded="true"] .header__menu-icon::after { transform: rotate(-45deg); top:0; }
 
-    @media (min-width: 768px) {
-      .header__container { padding: 20px 48px; }
-    }
-
-    .header__logo {
-      display: inline-flex;
-      align-items: center;
-      font-weight: 700;
-      font-size: 20px;
-      z-index: 1001;
-      background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-   /* Logo sizing (forceer vaste hoogte) */
-.logo {
-  height: 90px;     /* was max-height: 48px */
-  width: auto;
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .logo { height: 110px; }   /* was max-height: 56px */
-}
-    .header__menu-toggle {
-      display: block;
-      width: 32px;
-      height: 32px;
-      position: relative;
-      z-index: 1001;
-      background: transparent;
-      border: 0;
-      cursor: pointer;
-    }
-
-    @media (min-width: 1024px) {
-      .header__menu-toggle { display: none; }
-    }
-
-    .header__menu-icon, .header__menu-icon::before, .header__menu-icon::after {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #0f172a;
-      position: absolute;
-      left: 4px;
-      transition: all 0.3s ease;
-    }
-
-    .header__menu-icon { top: 15px; }
-    .header__menu-icon::before, .header__menu-icon::after { content: ''; }
-    .header__menu-icon::before { top: -8px; }
-    .header__menu-icon::after { top: 8px; }
-
-    .header__menu-toggle[aria-expanded="true"] .header__menu-icon { background: transparent; }
-    .header__menu-toggle[aria-expanded="true"] .header__menu-icon::before { transform: rotate(45deg); top: 0; }
-    .header__menu-toggle[aria-expanded="true"] .header__menu-icon::after { transform: rotate(-45deg); top: 0; }
-
-    .header__nav {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100vh;
-      background: #fff;
-      padding: 80px 24px 24px;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      overflow-y: auto;
-    }
-
+    .header__nav { position:fixed; top:0; right:0; width:100%; height:100vh; background:#fff; padding:80px 24px 24px; transform: translateX(100%); transition: transform .3s ease; overflow-y:auto; }
     .header__nav.is-open { transform: translateX(0); }
+    @media (min-width:1024px){ .header__nav{ position:static; width:auto; height:auto; background:transparent; padding:0; transform:none; display:flex; align-items:center; gap:32px; } }
+    .header__nav-list { display:flex; flex-direction:column; gap:24px; margin-bottom:32px; }
+    @media (min-width:1024px){ .header__nav-list{ flex-direction:row; gap:32px; margin-bottom:0; } }
+    .header__nav-link { font-size:18px; font-weight:500; color:#475569; transition: color .2s ease; display:block; }
+    @media (min-width:1024px){ .header__nav-link{ font-size:15px; } }
+    .header__nav-link:hover { color:#2563eb; }
 
-    @media (min-width: 1024px) {
-      .header__nav {
-        position: static;
-        width: auto;
-        height: auto;
-        background: transparent;
-        padding: 0;
-        transform: none;
-        display: flex;
-        align-items: center;
-        gap: 32px;
-      }
-    }
-
-    .header__nav-list {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      margin-bottom: 32px;
-    }
-
-    @media (min-width: 1024px) {
-      .header__nav-list {
-        flex-direction: row;
-        gap: 32px;
-        margin-bottom: 0;
-      }
-    }
-
-    .header__nav-link {
-      font-size: 18px;
-      font-weight: 500;
-      color: #475569;
-      transition: color 0.2s ease;
-      display: block;
-    }
-
-    @media (min-width: 1024px) {
-      .header__nav-link { font-size: 15px; }
-    }
-
-    .header__nav-link:hover {
-      color: #2563eb;
-    }
+    /* Language switcher */
+    .lang-switch { display:flex; align-items:center; gap:8px; }
+    .lang-btn { display:inline-flex; align-items:center; gap:6px; font-size:14px; padding:8px 12px; border:1px solid #e2e8f0; border-radius:999px; background:#fff; cursor:pointer; }
+    .lang-btn[aria-pressed="true"] { border-color:#2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.15); }
+    .flag { font-size:16px; line-height:1; }
 
     /* HERO */
-    .hero {
-      padding: 100px 0 80px;
-      text-align: center;
-      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.5;
-    }
-
-    @media (min-width: 768px) {
-      .hero { padding: 140px 0 120px; }
-    }
-
-    .hero__container {
-      max-width: 900px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero__badge {
-      display: inline-block;
-      padding: 8px 16px;
-      background: rgba(16, 185, 129, 0.1);
-      color: #059669;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 24px;
-      border: 1px solid rgba(16, 185, 129, 0.2);
-    }
-
-    .hero__title {
-      font-size: 38px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      color: #0f172a;
-    }
-
-    @media (min-width: 768px) {
-      .hero__title {
-        font-size: 60px;
-        margin-bottom: 28px;
-      }
-    }
-
-    .hero__subtitle {
-      font-size: 19px;
-      line-height: 1.7;
-      color: #475569;
-      margin-bottom: 40px;
-    }
-
-    @media (min-width: 768px) {
-      .hero__subtitle {
-        font-size: 22px;
-        margin-bottom: 48px;
-      }
-    }
-
-    .hero__cta {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 60px;
-    }
-
-    @media (min-width: 640px) {
-      .hero__cta {
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-      }
-    }
+    .hero { padding:100px 0 80px; text-align:center; background: linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 50%,#dbeafe 100%); position:relative; overflow:hidden; }
+    .hero::before { content:""; position:absolute; top:0; left:0; right:0; height:100%; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity:.5; }
+    @media (min-width:768px){ .hero{ padding:140px 0 120px; } }
+    .hero__container { max-width:900px; position:relative; z-index:1; }
+    .hero__badge { display:inline-block; padding:8px 16px; background: rgba(16,185,129,.1); color:#059669; border-radius:20px; font-size:14px; font-weight:600; margin-bottom:24px; border:1px solid rgba(16,185,129,.2); }
+    .hero__title { font-size:38px; font-weight:800; line-height:1.1; margin-bottom:24px; color:#0f172a; }
+    @media (min-width:768px){ .hero__title{ font-size:60px; margin-bottom:28px; } }
+    .hero__subtitle { font-size:19px; line-height:1.7; color:#475569; margin-bottom:40px; }
+    @media (min-width:768px){ .hero__subtitle{ font-size:22px; margin-bottom:48px; } }
+    .hero__cta { display:flex; flex-direction:column; gap:16px; align-items:center; margin-bottom:60px; }
+    @media (min-width:640px){ .hero__cta{ flex-direction:row; justify-content:center; gap:20px; } }
 
     /* Stats */
-    .hero__stats {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
-      margin-top: 60px;
-      padding-top: 48px;
-      border-top: 1px solid rgba(37, 99, 235, 0.15);
-    }
-
-    @media (min-width: 640px) {
-      .hero__stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 48px;
-      }
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat__number {
-      font-size: 36px;
-      font-weight: 800;
-      color: #2563eb;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .stat__label {
-      font-size: 15px;
-      color: #64748b;
-    }
+    .hero__stats { display:grid; grid-template-columns:1fr; gap:32px; margin-top:60px; padding-top:48px; border-top:1px solid rgba(37,99,235,.15); }
+    @media (min-width:640px){ .hero__stats{ grid-template-columns: repeat(3,1fr); gap:48px; } }
+    .stat { text-align:center; }
+    .stat__number { font-size:36px; font-weight:800; color:#2563eb; display:block; margin-bottom:8px; }
+    .stat__label { font-size:15px; color:#64748b; }
 
     /* Trust Logos */
-    .trust-section {
-      background: #fff;
-      padding: 48px 0;
-      border-bottom: 1px solid #e2e8f0;
-    }
+    .trust-section { background:#fff; padding:48px 0; border-bottom:1px solid #e2e8f0; }
+    .trust-section__title { text-align:center; font-size:14px; text-transform:uppercase; letter-spacing:1px; color:#64748b; margin-bottom:32px; font-weight:600; }
+    .trust-logos { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:40px; opacity:.6; }
+    .trust-logo { font-size:24px; font-weight:700; color:#94a3b8; }
 
-    .trust-section__title {
-      text-align: center;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #64748b;
-      margin-bottom: 32px;
-      font-weight: 600;
-    }
+    /* CARDS/SECTIONS kept from your original styles ... */
+    .section--aanbod{ background:#fff; }
+    .cards{ display:grid; gap:32px; grid-template-columns:1fr; }
+    @media (min-width:768px){ .cards{ grid-template-columns: repeat(3,1fr); gap:32px; } }
+    .card{ background:#fff; padding:40px 32px; border-radius:16px; text-align:center; border:1px solid #e2e8f0; transition:all .3s ease; position:relative; overflow:hidden; }
+    .card::before{ content:""; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#2563eb,#10b981); transform: scaleX(0); transition: transform .3s ease; }
+    @media (prefers-reduced-motion: no-preference){ .card:hover{ transform: translateY(-8px); box-shadow:0 20px 40px rgba(37,99,235,.12); border-color:#2563eb; } .card:hover::before{ transform: scaleX(1); } }
+    .card__icon{ font-size:48px; margin-bottom:24px; }
+    .card__title{ font-size:22px; font-weight:700; margin-bottom:12px; color:#0f172a; }
+    .card__text{ font-size:16px; line-height:1.7; color:#64748b; }
 
-    .trust-logos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      opacity: 0.6;
-    }
+    .section--hoe{ background: linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%); }
+    .steps{ display:grid; gap:48px; grid-template-columns:1fr; }
+    @media (min-width:768px){ .steps{ grid-template-columns: repeat(3,1fr); gap:40px; } }
+    .step{ text-align:center; position:relative; }
+    .step::after{ content:'→'; position:absolute; top:32px; right:-20px; font-size:32px; color:#cbd5e1; display:none; }
+    @media (min-width:768px){ .step:not(:last-child)::after{ display:block; } }
+    .step__number{ display:inline-flex; align-items:center; justify-content:center; width:72px; height:72px; border-radius:50%; background:linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%); color:#fff; font-size:32px; font-weight:800; margin-bottom:24px; box-shadow:0 8px 20px rgba(37,99,235,.25); }
+    .step__title{ font-size:22px; font-weight:700; margin-bottom:12px; color:#0f172a; }
+    .step__text{ font-size:16px; line-height:1.7; color:#64748b; }
 
-    .trust-logo {
-      font-size: 24px;
-      font-weight: 700;
-      color: #94a3b8;
-    }
+    .section--voordelen{ background:#fff; }
+    .benefits{ display:grid; gap:40px; grid-template-columns:1fr; }
+    @media (min-width:768px){ .benefits{ grid-template-columns: repeat(3,1fr); gap:48px; } }
+    .benefit{ text-align:center; padding:32px; background: linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%); border-radius:16px; border:1px solid #bae6fd; }
+    .benefit__icon{ font-size:42px; margin-bottom:20px; }
+    .benefit__title{ font-size:22px; font-weight:700; margin-bottom:12px; color:#0f172a; }
+    .benefit__text{ font-size:16px; line-height:1.7; color:#475569; }
 
-    /* AANBOD */
-    .section--aanbod {
-      background: #fff;
-    }
+    .section--usecases{ background: linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%); }
+    .usecases{ display:grid; gap:32px; grid-template-columns:1fr; }
+    @media (min-width:768px){ .usecases{ grid-template-columns: repeat(3,1fr); gap:32px; } }
+    .usecase{ background:#fff; padding:36px 28px; border-radius:12px; border-left:5px solid #10b981; box-shadow:0 4px 12px rgba(0,0,0,.05); transition: all .3s ease; }
+    .usecase:hover{ transform: translateX(4px); box-shadow:0 8px 24px rgba(0,0,0,.08); }
+    .usecase__title{ font-size:20px; font-weight:700; margin-bottom:12px; color:#0f172a; }
+    .usecase__text{ font-size:16px; line-height:1.7; color:#64748b; }
 
-    .cards {
-      display: grid;
-      gap: 32px;
-      grid-template-columns: 1fr;
-    }
+    .section--testimonials{ background:#fff; }
+    .testimonials{ display:grid; gap:40px; grid-template-columns:1fr; }
+    @media (min-width:768px){ .testimonials{ grid-template-columns: repeat(2,1fr); gap:48px; } }
+    .testimonial{ background: linear-gradient(135deg,#fefce8 0%,#fef3c7 100%); padding:40px 36px; border-radius:16px; border:1px solid #fde68a; position:relative; }
+    .testimonial::before{ content:'"'; position:absolute; top:20px; left:24px; font-size:80px; color:#fbbf24; opacity:.3; line-height:1; font-family: Georgia, serif; }
+    .testimonial__quote{ font-size:17px; line-height:1.7; color:#1a1a1a; margin-bottom:24px; position:relative; z-index:1; }
+    .testimonial__author{ font-size:15px; color:#78716c; font-style:normal; }
+    .testimonial__author strong{ color:#0f172a; font-weight:700; display:block; margin-bottom:4px; }
 
-    @media (min-width: 768px) {
-      .cards {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-      }
-    }
-
-    .card {
-      background: #fff;
-      padding: 40px 32px;
-      border-radius: 16px;
-      text-align: center;
-      border: 1px solid #e2e8f0;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #2563eb, #10b981);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      .card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(37, 99, 235, 0.12);
-        border-color: #2563eb;
-      }
-      .card:hover::before {
-        transform: scaleX(1);
-      }
-    }
-
-    .card__icon {
-      font-size: 48px;
-      margin-bottom: 24px;
-    }
-
-    .card__title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #0f172a;
-    }
-
-    .card__text {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #64748b;
-    }
-
-    /* STEPS */
-    .section--hoe {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    }
-
-    .steps {
-      display: grid;
-      gap: 48px;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 768px) {
-      .steps {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px;
-      }
-    }
-
-    .step {
-      text-align: center;
-      position: relative;
-    }
-
-    .step::after {
-      content: '→';
-      position: absolute;
-      top: 32px;
-      right: -20px;
-      font-size: 32px;
-      color: #cbd5e1;
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .step:not(:last-child)::after {
-        display: block;
-      }
-    }
-
-    .step__number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: #fff;
-      font-size: 32px;
-      font-weight: 800;
-      margin-bottom: 24px;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
-    }
-
-    .step__title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #0f172a;
-    }
-
-    .step__text {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #64748b;
-    }
-
-    /* VOORDELEN */
-    .section--voordelen {
-      background: #fff;
-    }
-
-    .benefits {
-      display: grid;
-      gap: 40px;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 768px) {
-      .benefits {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 48px;
-      }
-    }
-
-    .benefit {
-      text-align: center;
-      padding: 32px;
-      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-      border-radius: 16px;
-      border: 1px solid #bae6fd;
-    }
-
-    .benefit__icon {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-
-    .benefit__title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #0f172a;
-    }
-
-    .benefit__text {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #475569;
-    }
-
-    /* USE CASES */
-    .section--usecases {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    }
-
-    .usecases {
-      display: grid;
-      gap: 32px;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 768px) {
-      .usecases {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-      }
-    }
-
-    .usecase {
-      background: #fff;
-      padding: 36px 28px;
-      border-radius: 12px;
-      border-left: 5px solid #10b981;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-    }
-
-    .usecase:hover {
-      transform: translateX(4px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    }
-
-    .usecase__title {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #0f172a;
-    }
-
-    .usecase__text {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #64748b;
-    }
-
-    /* TESTIMONIALS */
-    .section--testimonials {
-      background: #fff;
-    }
-
-    .testimonials {
-      display: grid;
-      gap: 40px;
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 768px) {
-      .testimonials {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 48px;
-      }
-    }
-
-    .testimonial {
-      background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
-      padding: 40px 36px;
-      border-radius: 16px;
-      border: 1px solid #fde68a;
-      position: relative;
-    }
-
-    .testimonial::before {
-      content: '"';
-      position: absolute;
-      top: 20px;
-      left: 24px;
-      font-size: 80px;
-      color: #fbbf24;
-      opacity: 0.3;
-      line-height: 1;
-      font-family: Georgia, serif;
-    }
-
-    .testimonial__quote {
-      font-size: 17px;
-      line-height: 1.7;
-      color: #1a1a1a;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .testimonial__author {
-      font-size: 15px;
-      color: #78716c;
-      font-style: normal;
-    }
-
-    .testimonial__author strong {
-      color: #0f172a;
-      font-weight: 700;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    /* CONTACT */
-    .section--contact {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section--contact::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.5;
-    }
-
-    .contact__content {
-      max-width: 800px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    @media (min-width: 768px) {
-      .contact__content {
-        flex-direction: row;
-        gap: 64px;
-        align-items: flex-start;
-      }
-    }
-
-    .contact__calendly {
-      flex: 1;
-      text-align: center;
-    }
-
-    @media (min-width: 768px) {
-      .contact__calendly { text-align: left; }
-    }
-
-    .contact__note {
-      margin-top: 16px;
-      font-size: 15px;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .contact__divider {
-      font-size: 18px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.3);
-    }
-
-    @media (min-width: 768px) {
-      .contact__divider { margin-top: 80px; }
-    }
-
-    .contact__form {
-      flex: 1;
-      width: 100%;
-    }
-
-    .form__group {
-      margin-bottom: 24px;
-    }
-
-    .form__label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #f1f5f9;
-    }
-
-    .form__input, .form__textarea {
-      width: 100%;
-      padding: 14px 18px;
-      font-size: 16px;
-      font-family: inherit;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      transition: all 0.2s ease;
-    }
-
-    .form__input:focus, .form__textarea:focus {
-      outline: none;
-      border-color: #2563eb;
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-
-    .form__textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    .form__success {
-      margin-top: 20px;
-      padding: 16px;
-      background: rgba(16, 185, 129, 0.2);
-      border: 1px solid rgba(16, 185, 129, 0.4);
-      border-radius: 8px;
-      color: #fff;
-      text-align: center;
-      display: none;
-    }
+    .section--contact{ background: linear-gradient(135deg,#0f172a 0%,#1e293b 100%); color:#fff; position:relative; overflow:hidden; }
+    .section--contact::before{ content:""; position:absolute; top:0; left:0; right:0; bottom:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity:.5; }
+    .contact__content{ max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:48px; align-items:center; position:relative; z-index:1; }
+    @media (min-width:768px){ .contact__content{ flex-direction:row; gap:64px; align-items:flex-start; } }
+    .contact__calendly{ flex:1; text-align:center; }
+    @media (min-width:768px){ .contact__calendly{ text-align:left; } }
+    .contact__note{ margin-top:16px; font-size:15px; color: rgba(255,255,255,.7); }
+    .contact__divider{ font-size:18px; font-weight:600; color: rgba(255,255,255,.3); }
+    @media (min-width:768px){ .contact__divider{ margin-top:80px; } }
+    .contact__form{ flex:1; width:100%; }
+    .form__group{ margin-bottom:24px; }
+    .form__label{ display:block; font-size:14px; font-weight:600; margin-bottom:8px; color:#f1f5f9; }
+    .form__input,.form__textarea{ width:100%; padding:14px 18px; font-size:16px; font-family:inherit; border:1px solid rgba(255,255,255,.2); border-radius:8px; background: rgba(255,255,255,.08); color:#fff; transition: all .2s ease; }
+    .form__input:focus,.form__textarea:focus{ outline:none; border-color:#2563eb; background: rgba(255,255,255,.12); box-shadow: 0 0 0 3px rgba(37,99,235,.15); }
+    .form__textarea{ resize:vertical; min-height:100px; }
+    .form__success{ margin-top:20px; padding:16px; background: rgba(16,185,129,.2); border:1px solid rgba(16,185,129,.4); border-radius:8px; color:#fff; text-align:center; display:none; }
 
     /* LIVE CHAT BUTTON */
-    .chat-button {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(249, 115, 22, 0.4);
-      cursor: pointer;
-      z-index: 999;
-      transition: all 0.3s ease;
-      border: 0;
-    }
-
-    .chat-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 32px rgba(249, 115, 22, 0.5);
-    }
+    .chat-button{ position:fixed; bottom:24px; right:24px; width:64px; height:64px; background: linear-gradient(135deg,#f97316 0%,#ea580c 100%); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; color:#fff; box-shadow:0 8px 24px rgba(249,115,22,.4); cursor:pointer; z-index:999; transition: all .3s ease; border:0; }
+    .chat-button:hover{ transform: scale(1.1); box-shadow:0 12px 32px rgba(249,115,22,.5); }
 
     /* FOOTER */
-    .footer {
-      background: #000;
-      color: rgba(255, 255, 255, 0.7);
-      padding: 48px 0 32px;
-    }
-
-    .footer__container {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      align-items: center;
-      text-align: center;
-    }
-
-    @media (min-width: 768px) {
-      .footer__container {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-      }
-    }
-
-    .footer__copy {
-      font-size: 14px;
-    }
-
-    .footer__nav {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer__link {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.7);
-      transition: color 0.2s ease;
-    }
-
-    .footer__link:hover {
-      color: #2563eb;
-    }
+    .footer{ background:#000; color: rgba(255,255,255,.7); padding:48px 0 32px; }
+    .footer__container{ display:flex; flex-direction:column; gap:24px; align-items:center; text-align:center; }
+    @media (min-width:768px){ .footer__container{ flex-direction:row; justify-content:space-between; text-align:left; } }
+    .footer__copy{ font-size:14px; }
+    .footer__nav{ display:flex; gap:24px; }
+    .footer__link{ font-size:14px; color: rgba(255,255,255,.7); transition: color .2s ease; }
+    .footer__link:hover{ color:#2563eb; }
 
     /* PRICING */
-    .section--pricing {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    }
-
-    .pricing-cards {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: 1fr;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 768px) {
-      .pricing-cards {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-    }
-
-    .pricing-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 48px 32px;
-      border: 2px solid #e2e8f0;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-    }
-
-    .pricing-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      border-color: #cbd5e1;
-    }
-
-    .pricing-card--featured {
-      border-color: #2563eb;
-      box-shadow: 0 12px 32px rgba(37, 99, 235, 0.15);
-      transform: scale(1.05);
-    }
-
-    @media (min-width: 768px) {
-      .pricing-card--featured {
-        transform: scale(1.05);
-      }
-      
-      .pricing-card--featured:hover {
-        transform: scale(1.05) translateY(-8px);
-      }
-    }
-
-    .pricing-card__badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: #fff;
-      padding: 6px 20px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 700;
-      white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-    }
-
-    .pricing-card__name {
-      font-size: 28px;
-      font-weight: 800;
-      color: #0f172a;
-      margin-bottom: 24px;
-    }
-
-    .pricing-card__price {
-      margin-bottom: 32px;
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
-    }
-
-    .pricing-card__currency {
-      font-size: 24px;
-      font-weight: 700;
-      color: #64748b;
-      margin-right: 4px;
-    }
-
-    .pricing-card__amount {
-      font-size: 56px;
-      font-weight: 900;
-      color: #0f172a;
-      line-height: 1;
-    }
-
-    .pricing-card__period {
-      font-size: 18px;
-      color: #64748b;
-      margin-left: 4px;
-    }
-
-    .pricing-card--featured .pricing-card__amount {
-      background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .pricing-note {
-      text-align: center;
-      margin-top: 48px;
-      font-size: 16px;
-      color: #475569;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 20px;
-      background: rgba(37, 99, 235, 0.05);
-      border-radius: 12px;
-      border: 1px solid rgba(37, 99, 235, 0.1);
-    }
+    .section--pricing{ background: linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%); }
+    .pricing-cards{ display:grid; gap:24px; grid-template-columns:1fr; max-width:1000px; margin:0 auto; }
+    @media (min-width:768px){ .pricing-cards{ grid-template-columns: repeat(3,1fr); gap:24px; } }
+    .pricing-card{ background:#fff; border-radius:16px; padding:48px 32px; border:2px solid #e2e8f0; transition: all .3s ease; display:flex; flex-direction:column; align-items:center; text-align:center; position:relative; }
+    .pricing-card:hover{ transform: translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,.1); border-color:#cbd5e1; }
+    .pricing-card--featured{ border-color:#2563eb; box-shadow:0 12px 32px rgba(37,99,235,.15); transform: scale(1.05); }
+    @media (min-width:768px){ .pricing-card--featured{ transform: scale(1.05); } .pricing-card--featured:hover{ transform: scale(1.05) translateY(-8px); } }
+    .pricing-card__badge{ position:absolute; top:-12px; left:50%; transform: translateX(-50%); background: linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%); color:#fff; padding:6px 20px; border-radius:20px; font-size:13px; font-weight:700; white-space:nowrap; box-shadow:0 4px 12px rgba(37,99,235,.3); }
+    .pricing-card__name{ font-size:28px; font-weight:800; color:#0f172a; margin-bottom:24px; }
+    .pricing-card__price{ margin-bottom:32px; display:flex; align-items:baseline; justify-content:center; }
+    .pricing-card__currency{ font-size:24px; font-weight:700; color:#64748b; margin-right:4px; }
+    .pricing-card__amount{ font-size:56px; font-weight:900; color:#0f172a; line-height:1; }
+    .pricing-card__period{ font-size:18px; color:#64748b; margin-left:4px; }
+    .pricing-card--featured .pricing-card__amount{ background: linear-gradient(135deg,#2563eb 0%,#10b981 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .pricing-note{ text-align:center; margin-top:48px; font-size:16px; color:#475569; max-width:700px; margin-left:auto; margin-right:auto; padding:20px; background: rgba(37,99,235,.05); border-radius:12px; border:1px solid rgba(37,99,235,.1); }
   </style>
 </head>
 <body>
-
   <!-- HEADER -->
   <header class="header" id="header">
     <div class="header__container">
-      <a href="#hero" class="header__logo" aria-label="Naar home">
-        <!-- width/height helpen layout-stabiliteit; pas aan naar je echte bronafmetingen -->
+      <a href="#hero" class="header__logo" aria-label="Go to home">
         <img src="logo-clg.png" alt="Clarity LeadGen logo" class="logo" width="320" height="80" />
       </a>
 
-      <button class="header__menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Menu openen/sluiten">
+      <button class="header__menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open/close menu">
         <span class="header__menu-icon"></span>
       </button>
       
       <nav class="header__nav" id="mainNav">
         <ul class="header__nav-list">
-          <li><a href="#aanbod" class="header__nav-link">Aanbod</a></li>
-          <li><a href="#hoe" class="header__nav-link">Hoe het werkt</a></li>
-          <li><a href="#voordelen" class="header__nav-link">Voordelen</a></li>
-          <li><a href="#usecases" class="header__nav-link">Use cases</a></li>
-          <li><a href="#pricing" class="header__nav-link">Prijzen</a></li>
-          <li><a href="#testimonials" class="header__nav-link">Testimonials</a></li>
-          <li><a href="#contact" class="header__nav-link">Contact</a></li>
+          <li><a href="#aanbod" class="header__nav-link" id="navOfferings">Offerings</a></li>
+          <li><a href="#hoe" class="header__nav-link" id="navHow">How it works</a></li>
+          <li><a href="#voordelen" class="header__nav-link" id="navBenefits">Benefits</a></li>
+          <li><a href="#usecases" class="header__nav-link" id="navUseCases">Use cases</a></li>
+          <li><a href="#pricing" class="header__nav-link" id="navPricing">Pricing</a></li>
+          <li><a href="#testimonials" class="header__nav-link" id="navTestimonials">Testimonials</a></li>
+          <li><a href="#contact" class="header__nav-link" id="navContact">Contact</a></li>
         </ul>
-        <a href="#contact" class="btn btn--primary">Plan intake</a>
+        <a href="#contact" class="btn btn--primary" id="navCta">Book intro</a>
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button class="lang-btn" id="btnEN" aria-pressed="true"><span class="flag">🇬🇧</span> EN</button>
+          <button class="lang-btn" id="btnNL" aria-pressed="false"><span class="flag">🇳🇱</span> NL</button>
+        </div>
       </nav>
     </div>
   </header>
@@ -1068,26 +225,26 @@
   <!-- HERO -->
   <section class="hero" id="hero">
     <div class="container hero__container">
-      <div class="hero__badge">🚀 AI-gedreven leadgeneratie</div>
-      <h1 class="hero__title">Meer B2B leads, voorspelbaar en op schaal.</h1>
-      <p class="hero__subtitle">Clarity LeadGen verzorgt AI-gedreven outbound prospecting met data, automation én menselijke creativiteit. Zo krijg jij een continue stroom gekwalificeerde leads — en focus jij op closen.</p>
+      <div class="hero__badge" id="heroBadge">🚀 AI‑powered lead generation</div>
+      <h1 class="hero__title" id="heroTitle">More B2B leads, predictable and at scale.</h1>
+      <p class="hero__subtitle" id="heroSubtitle">Clarity LeadGen runs AI‑driven outbound prospecting with data, automation, and human creativity. You get a steady stream of qualified leads — you focus on closing.</p>
       <div class="hero__cta">
-        <a href="#contact" class="btn btn--primary btn--large">Plan gratis intakegesprek</a>
-        <a href="#hoe" class="btn btn--secondary btn--large">Hoe het werkt</a>
+        <a href="#contact" class="btn btn--primary btn--large" id="heroPrimaryCta">Book a free intro call</a>
+        <a href="#hoe" class="btn btn--secondary btn--large" id="heroSecondaryCta">How it works</a>
       </div>
-      
+
       <div class="hero__stats">
         <div class="stat">
-          <span class="stat__number">3x</span>
-          <span class="stat__label">Meer gekwalificeerde leads</span>
+          <span class="stat__number" id="stat1Num">3×</span>
+          <span class="stat__label" id="stat1Lbl">More qualified leads</span>
         </div>
         <div class="stat">
-          <span class="stat__number">87%</span>
-          <span class="stat__label">Tijdsbesparing voor sales</span>
+          <span class="stat__number" id="stat2Num">87%</span>
+          <span class="stat__label" id="stat2Lbl">Time saved for sales</span>
         </div>
         <div class="stat">
-          <span class="stat__number">2.4x</span>
-          <span class="stat__label">ROI binnen 6 maanden</span>
+          <span class="stat__number" id="stat3Num">2.4×</span>
+          <span class="stat__label" id="stat3Lbl">ROI within 6 months</span>
         </div>
       </div>
     </div>
@@ -1096,7 +253,7 @@
   <!-- TRUST LOGOS -->
   <section class="trust-section">
     <div class="container">
-      <p class="trust-section__title">Vertrouwd door innovatieve bedrijven</p>
+      <p class="trust-section__title" id="trustTitle">Trusted by innovative companies</p>
       <div class="trust-logos">
         <span class="trust-logo">TECHSCALE</span>
         <span class="trust-logo">SAASBOOST</span>
@@ -1107,84 +264,75 @@
     </div>
   </section>
 
-  <!-- AANBOD -->
+  <!-- OFFERINGS -->
   <section class="section section--aanbod" id="aanbod">
     <div class="container">
-      <h2 class="section__title">Ons aanbod</h2>
-      <p class="section__intro">We combineren slimme technologie met strategie, zodat jouw sales team niet langer op zoek hoeft naar leads.</p>
-      
+      <h2 class="section__title" id="offeringsTitle">Our offerings</h2>
+      <p class="section__intro" id="offeringsIntro">We blend smart tech with strategy so your sales team stops searching and starts selling.</p>
       <div class="cards">
         <article class="card">
           <div class="card__icon" aria-hidden="true">🎯</div>
-          <h3 class="card__title">AI-gedreven targeting</h3>
-          <p class="card__text">We identificeren jouw ideale klant met data-analyse en AI, zodat je tijd investeert in de juiste prospects.</p>
+          <h3 class="card__title" id="card1Title">AI‑powered targeting</h3>
+          <p class="card__text" id="card1Text">We identify your ideal customer with data analysis and AI so you invest time in the right prospects.</p>
         </article>
-        
         <article class="card">
           <div class="card__icon" aria-hidden="true">🤝</div>
-          <h3 class="card__title">Automation + human touch</h3>
-          <p class="card__text">Onze campagnes combineren slimme automation met persoonlijke, relevante messaging die converteert.</p>
+          <h3 class="card__title" id="card2Title">Automation + human touch</h3>
+          <p class="card__text" id="card2Text">Our campaigns combine smart automation with personal, relevant messaging that converts.</p>
         </article>
-        
         <article class="card">
           <div class="card__icon" aria-hidden="true">📈</div>
-          <h3 class="card__title">Voorspelbare leadstroom</h3>
-          <p class="card__text">Geen giswerk meer. Elke maand een consistente stroom gekwalificeerde afspraken in je agenda.</p>
+          <h3 class="card__title" id="card3Title">Predictable lead flow</h3>
+          <p class="card__text" id="card3Text">No more guesswork. A consistent stream of qualified meetings on your calendar every month.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- HOE HET WERKT -->
+  <!-- HOW IT WORKS -->
   <section class="section section--hoe" id="hoe">
     <div class="container">
-      <h2 class="section__title">Hoe het werkt</h2>
-      <p class="section__intro">Van strategie tot afspraak: ons proces in drie heldere stappen.</p>
-      
+      <h2 class="section__title" id="howTitle">How it works</h2>
+      <p class="section__intro" id="howIntro">From strategy to scheduled meetings: our process in three steps.</p>
       <div class="steps">
         <article class="step">
           <div class="step__number" aria-hidden="true">1</div>
-          <h3 class="step__title">Kickoff</h3>
-          <p class="step__text">We starten met een intakegesprek: wie is jouw ideale klant, wat is je propositie en welke kanalen werken? Samen stellen we een scherp ICP en strategie op.</p>
+          <h3 class="step__title" id="step1Title">Kickoff</h3>
+          <p class="step__text" id="step1Text">We start with an intake: ICP, proposition, and channels. Together we define a sharp ICP and strategy.</p>
         </article>
-        
         <article class="step">
           <div class="step__number" aria-hidden="true">2</div>
-          <h3 class="step__title">Campagne opzetten</h3>
-          <p class="step__text">We verzamelen en verrijken data, schrijven gepersonaliseerde AI-copy, zetten automation op (e-mail + LinkedIn) en monitoren realtime performance.</p>
+          <h3 class="step__title" id="step2Title">Campaign setup</h3>
+          <p class="step__text" id="step2Text">We source & enrich data, write personalized AI copy, set up automation (email + LinkedIn), and monitor performance.</p>
         </article>
-        
         <article class="step">
           <div class="step__number" aria-hidden="true">3</div>
-          <h3 class="step__title">Leads in je agenda</h3>
-          <p class="step__text">We kwalificeren responses en plannen afspraken direct in. Jij focust op de salesgesprekken zelf; wij zorgen voor de pipeline.</p>
+          <h3 class="step__title" id="step3Title">Leads on your calendar</h3>
+          <p class="step__text" id="step3Text">We qualify responses and book meetings directly. You focus on the calls; we build the pipeline.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- VOORDELEN -->
+  <!-- BENEFITS -->
   <section class="section section--voordelen" id="voordelen">
     <div class="container">
-      <h2 class="section__title">Waarom CLG</h2>
-      
+      <h2 class="section__title" id="benefitsTitle">Why CLG</h2>
       <div class="benefits">
         <article class="benefit">
           <div class="benefit__icon" aria-hidden="true">⚡</div>
-          <h3 class="benefit__title">Consistente pipeline</h3>
-          <p class="benefit__text">Geen pieken en dalen meer. Elke maand nieuwe, gekwalificeerde leads die passen bij jouw ICP.</p>
+          <h3 class="benefit__title" id="benefit1Title">Consistent pipeline</h3>
+          <p class="benefit__text" id="benefit1Text">No more peaks and troughs. New qualified leads that match your ICP — every month.</p>
         </article>
-        
         <article class="benefit">
           <div class="benefit__icon" aria-hidden="true">⏱️</div>
-          <h3 class="benefit__title">Efficiënt & tijdsbesparend</h3>
-          <p class="benefit__text">Jouw team hoeft geen lijsten te scrapen of cold mails te schrijven. Wij nemen outbound volledig uit handen.</p>
+          <h3 class="benefit__title" id="benefit2Title">Efficient & time‑saving</h3>
+          <p class="benefit__text" id="benefit2Text">No scraping lists or writing cold emails. We take outbound completely off your plate.</p>
         </article>
-        
         <article class="benefit">
           <div class="benefit__icon" aria-hidden="true">💬</div>
-          <h3 class="benefit__title">Persoonlijk & relevant</h3>
-          <p class="benefit__text">Automation zonder spam: onze messaging voelt menselijk en is altijd toegespitst op de ontvanger.</p>
+          <h3 class="benefit__title" id="benefit3Title">Personal & relevant</h3>
+          <p class="benefit__text" id="benefit3Text">Automation without spam: human‑sounding messaging that’s always tailored to the recipient.</p>
         </article>
       </div>
     </div>
@@ -1193,23 +341,20 @@
   <!-- USE CASES -->
   <section class="section section--usecases" id="usecases">
     <div class="container">
-      <h2 class="section__title">Use cases</h2>
-      <p class="section__intro">Van startup tot scale-up: we werken met bedrijven die hun groei willen versnellen.</p>
-      
+      <h2 class="section__title" id="useTitle">Use cases</h2>
+      <p class="section__intro" id="useIntro">From startup to scale‑up: we work with companies eager to accelerate growth.</p>
       <div class="usecases">
         <article class="usecase">
-          <h3 class="usecase__title">SaaS-startups</h3>
-          <p class="usecase__text">Je hebt een sterk product, maar nog geen grote salesmachine. Wij bouwen jouw eerste outbound-engine en leveren de eerste klanten.</p>
+          <h3 class="usecase__title" id="use1Title">SaaS startups</h3>
+          <p class="usecase__text" id="use1Text">Strong product, small sales engine. We build your first outbound motion and bring the first customers.</p>
         </article>
-        
         <article class="usecase">
-          <h3 class="usecase__title">Scale-ups internationaal</h3>
-          <p class="usecase__text">Je wilt nieuwe markten betreden of verticalen aanboren. We lokaliseren messaging, targeten de juiste accounts en openen deuren.</p>
+          <h3 class="usecase__title" id="use2Title">International scale‑ups</h3>
+          <p class="usecase__text" id="use2Text">Entering new markets or verticals. We localize messaging, target the right accounts, and open doors.</p>
         </article>
-        
         <article class="usecase">
-          <h3 class="usecase__title">Complexe B2B funnels</h3>
-          <p class="usecase__text">Lange salescycli, meerdere stakeholders? We nurture prospects met multi-touch campagnes tot ze klaar zijn voor een gesprek.</p>
+          <h3 class="usecase__title" id="use3Title">Complex B2B funnels</h3>
+          <p class="usecase__text" id="use3Text">Long cycles, many stakeholders? We nurture with multi‑touch campaigns until they’re ready to talk.</p>
         </article>
       </div>
     </div>
@@ -1218,63 +363,57 @@
   <!-- PRICING -->
   <section class="section section--pricing" id="pricing">
     <div class="container">
-      <h2 class="section__title">Transparante prijzen</h2>
-      <p class="section__intro">Kies het pakket dat past bij jouw groeifase. Alle pakketten zijn maandelijks opzegbaar.</p>
-      
+      <h2 class="section__title" id="pricingTitle">Transparent pricing</h2>
+      <p class="section__intro" id="pricingIntro">Pick the plan that fits your growth stage. Cancel monthly.</p>
       <div class="pricing-cards">
         <article class="pricing-card">
-          <h3 class="pricing-card__name">Starter</h3>
+          <h3 class="pricing-card__name" id="price1Name">Starter</h3>
           <div class="pricing-card__price">
             <span class="pricing-card__currency">€</span>
             <span class="pricing-card__amount">3.000</span>
-            <span class="pricing-card__period">/maand</span>
+            <span class="pricing-card__period" id="price1Period">/month</span>
           </div>
-          <a href="#contact" class="btn btn--secondary btn--large">Kies Starter</a>
+          <a href="#contact" class="btn btn--secondary btn--large" id="price1Cta">Choose Starter</a>
         </article>
-        
         <article class="pricing-card pricing-card--featured">
-          <div class="pricing-card__badge">Populairste keuze</div>
-          <h3 class="pricing-card__name">Growth</h3>
+          <div class="pricing-card__badge" id="price2Badge">Most popular</div>
+          <h3 class="pricing-card__name" id="price2Name">Growth</h3>
           <div class="pricing-card__price">
             <span class="pricing-card__currency">€</span>
             <span class="pricing-card__amount">5.000</span>
-            <span class="pricing-card__period">/maand</span>
+            <span class="pricing-card__period" id="price2Period">/month</span>
           </div>
-          <a href="#contact" class="btn btn--primary btn--large">Kies Growth</a>
+          <a href="#contact" class="btn btn--primary btn--large" id="price2Cta">Choose Growth</a>
         </article>
-        
         <article class="pricing-card">
-          <h3 class="pricing-card__name">Enterprise</h3>
+          <h3 class="pricing-card__name" id="price3Name">Enterprise</h3>
           <div class="pricing-card__price">
             <span class="pricing-card__currency">€</span>
             <span class="pricing-card__amount">8.000</span>
-            <span class="pricing-card__period">/maand</span>
+            <span class="pricing-card__period" id="price3Period">/month</span>
           </div>
-          <a href="#contact" class="btn btn--success btn--large">Kies Enterprise</a>
+          <a href="#contact" class="btn btn--success btn--large" id="price3Cta">Choose Enterprise</a>
         </article>
       </div>
-      
-      <p class="pricing-note">💡 Wil je weten wat elk pakket precies bevat? Plan een gratis intakegesprek en we bespreken welke optie het beste bij je past.</p>
+      <p class="pricing-note" id="pricingNote">💡 Curious what’s included? Book a free intro call and we’ll match the right plan to your goals.</p>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
   <section class="section section--testimonials" id="testimonials">
     <div class="container">
-      <h2 class="section__title">Wat klanten zeggen</h2>
-      
+      <h2 class="section__title" id="testTitle">What clients say</h2>
       <div class="testimonials">
         <blockquote class="testimonial">
-          <p class="testimonial__quote">CLG verdubbelde onze pipeline in 3 maanden. Automatisering mét personalisatie werkt écht.</p>
-          <cite class="testimonial__author">
+          <p class="testimonial__quote" id="test1Quote">CLG doubled our pipeline in 3 months. Automation with personalization really works.</p>
+          <cite class="testimonial__author" id="test1Author">
             <strong>Mark de Vries</strong>
             Head of Sales @ TechScale
           </cite>
         </blockquote>
-        
         <blockquote class="testimonial">
-          <p class="testimonial__quote">We spreken nu elke week met nieuwe prospects, zonder zelf cold outreach te doen.</p>
-          <cite class="testimonial__author">
+          <p class="testimonial__quote" id="test2Quote">We speak with new prospects every week, without doing cold outreach ourselves.</p>
+          <cite class="testimonial__author" id="test2Author">
             <strong>Lisa van Doorn</strong>
             CEO @ SaaSStartup
           </cite>
@@ -1286,67 +425,57 @@
   <!-- CONTACT -->
   <section class="section section--contact" id="contact">
     <div class="container">
-      <h2 class="section__title section__title--light">Klaar voor voorspelbare leadgeneratie?</h2>
-      <p class="section__intro section__intro--light">Plan een vrijblijvend intakegesprek of stuur ons een bericht.</p>
-      
+      <h2 class="section__title section__title--light" id="contactTitle">Ready for predictable lead generation?</h2>
+      <p class="section__intro section__intro--light" id="contactIntro">Book a no‑strings intro call or send us a message.</p>
       <div class="contact__content">
         <div class="contact__calendly">
-          <button class="btn btn--success btn--large" id="calendlyBtn">📅 Boek gratis intake</button>
-          <p class="contact__note">Kies een moment dat jou uitkomt — we nemen de tijd.</p>
+          <button class="btn btn--success btn--large" id="calendlyBtn">📅 Book free intro</button>
+          <p class="contact__note" id="calendlyNote">Pick a time that works for you — we’ll come prepared.</p>
         </div>
-        
-        <div class="contact__divider" aria-hidden="true">of</div>
-        
+        <div class="contact__divider" aria-hidden="true" id="contactDivider">or</div>
         <form class="contact__form" id="contactForm" action="https://formspree.io/f/xovknney" method="POST">
           <div class="form__group">
-            <label for="name" class="form__label">Naam *</label>
-            <input type="text" id="name" name="name" class="form__input" required>
+            <label for="name" class="form__label" id="labelName">Name *</label>
+            <input type="text" id="name" name="name" class="form__input" required />
           </div>
           <div class="form__group">
-            <label for="company" class="form__label">Bedrijf *</label>
-            <input type="text" id="company" name="company" class="form__input" required>
+            <label for="company" class="form__label" id="labelCompany">Company *</label>
+            <input type="text" id="company" name="company" class="form__input" required />
           </div>
           <div class="form__group">
-            <label for="email" class="form__label">E-mail *</label>
-            <input type="email" id="email" name="email" class="form__input" required>
+            <label for="email" class="form__label" id="labelEmail">Email *</label>
+            <input type="email" id="email" name="email" class="form__input" required />
           </div>
           <div class="form__group">
-            <label for="message" class="form__label">Bericht</label>
+            <label for="message" class="form__label" id="labelMessage">Message</label>
             <textarea id="message" name="message" class="form__textarea" rows="4"></textarea>
           </div>
-          <button type="submit" class="btn btn--success btn--large">Versturen</button>
-
-          <!-- Succesmelding voor JS -->
-          <div class="form__success" id="formSuccess">
-            <p>✓ Bedankt! We nemen binnen 24 uur contact op.</p>
-          </div>
+          <button type="submit" class="btn btn--success btn--large" id="contactSubmit">Send</button>
+          <div class="form__success" id="formSuccess"><p id="formSuccessText">✓ Thanks! We’ll get back within 24 hours.</p></div>
         </form>
       </div>
     </div>
   </section>
 
   <!-- LIVE CHAT BUTTON -->
-  <button class="chat-button" id="chatBtn" aria-label="Open live chat">
-    💬
-  </button>
+  <button class="chat-button" id="chatBtn" aria-label="Open live chat">💬</button>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__container">
-      <p class="footer__copy">&copy; <span id="currentYear"></span> Clarity LeadGen. Alle rechten voorbehouden.</p>
+      <p class="footer__copy">&copy; <span id="currentYear"></span> Clarity LeadGen. <span id="footerRights">All rights reserved.</span></p>
       <nav class="footer__nav">
-        <a href="#" class="footer__link">Privacy</a>
-        <a href="#" class="footer__link">Voorwaarden</a>
+        <a href="#" class="footer__link" id="footerPrivacy">Privacy</a>
+        <a href="#" class="footer__link" id="footerTerms">Terms</a>
       </nav>
     </div>
   </footer>
 
   <script>
-    // Mobile menu toggle
+    /************ Mobile menu ************/
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
     const navLinks = document.querySelectorAll('.header__nav-link');
-
     if (menuToggle && mainNav) {
       menuToggle.addEventListener('click', () => {
         const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
@@ -1354,15 +483,11 @@
         mainNav.classList.toggle('is-open');
         document.body.style.overflow = isOpen ? '' : 'hidden';
       });
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          menuToggle.setAttribute('aria-expanded', 'false');
-          mainNav.classList.remove('is-open');
-          document.body.style.overflow = '';
-        });
-      });
-
+      navLinks.forEach(link => link.addEventListener('click', () => {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        mainNav.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }));
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && mainNav.classList.contains('is-open')) {
           menuToggle.setAttribute('aria-expanded', 'false');
@@ -1373,112 +498,283 @@
       });
     }
 
-    // Smooth scroll
+    /************ Smooth scroll ************/
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-        if (href === '#') {
-          e.preventDefault();
-          return;
-        }
+        if (href === '#') { e.preventDefault(); return; }
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
           const header = document.querySelector('.header');
           const headerHeight = header ? header.offsetHeight : 0;
           const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         }
       });
     });
 
-    // Calendly button
+    /************ Calendly & Chat placeholders ************/
     const calendlyBtn = document.getElementById('calendlyBtn');
     if (calendlyBtn) {
       calendlyBtn.addEventListener('click', () => {
-        alert('🗓️ Calendly popup wordt hier geopend.\n\nVervang in productie met je eigen Calendly-link!');
+        alert('🗓️ Calendly popup would open here. Replace with your real link.');
       });
     }
-
-    // Chat button
     const chatBtn = document.getElementById('chatBtn');
     if (chatBtn) {
       chatBtn.addEventListener('click', () => {
-        alert('💬 Live chat wordt hier geopend.\n\nIntegreer een tool zoals Intercom, Drift, of Crisp!');
+        alert('💬 Live chat would open here. Integrate Intercom/Drift/Crisp.');
       });
     }
 
-    // Contact form
+    /************ Contact form (Formspree) ************/
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
-
     if (contactForm) {
       contactForm.addEventListener('submit', async (e) => {
-        // Verander dit naar false als je Formspree native submit wilt gebruiken
-        const handleViaJS = true;
-
-        if (!handleViaJS) return; // laat de browser normaal submitten
-
+        const handleViaJS = true; // set false to let browser submit
+        if (!handleViaJS) return;
         e.preventDefault();
-        
         const name = document.getElementById('name').value.trim();
         const company = document.getElementById('company').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
-        
-        if (!name || !company || !email) {
-          alert('Vul alle verplichte velden in.');
-          return;
-        }
-        
+        if (!name || !company || !email) { alert(currentLang === 'nl' ? 'Vul alle verplichte velden in.' : 'Please fill all required fields.'); return; }
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          alert('Voer een geldig e-mailadres in.');
-          return;
-        }
-
+        if (!emailRegex.test(email)) { alert(currentLang === 'nl' ? 'Voer een geldig e‑mailadres in.' : 'Enter a valid email address.'); return; }
         try {
-          const resp = await fetch(contactForm.action, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: new FormData(contactForm)
-          });
-
+          const resp = await fetch(contactForm.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(contactForm) });
           if (resp.ok) {
             formSuccess.style.display = 'block';
             contactForm.reset();
             formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             setTimeout(() => { formSuccess.style.display = 'none'; }, 5000);
-          } else {
-            alert('Er ging iets mis bij het versturen. Probeer het later opnieuw.');
-          }
-        } catch (err) {
-          alert('Netwerkfout. Controleer je verbinding en probeer opnieuw.');
-        }
+          } else { alert(currentLang === 'nl' ? 'Er ging iets mis bij het versturen. Probeer het later opnieuw.' : 'Something went wrong. Please try again later.'); }
+        } catch (err) { alert(currentLang === 'nl' ? 'Netwerkfout. Controleer je verbinding en probeer opnieuw.' : 'Network error. Check your connection and try again.'); }
       });
     }
 
-    // Current year
+    /************ Footer year ************/
     const yearElement = document.getElementById('currentYear');
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
+    if (yearElement) { yearElement.textContent = new Date().getFullYear(); }
 
-    // Header shadow on scroll
+    /************ Header shadow ************/
     const header = document.getElementById('header');
     if (header) {
-      window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 0) {
-          header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.06)';
-        } else {
-          header.style.boxShadow = 'none';
-        }
-      });
+      window.addEventListener('scroll', () => { header.style.boxShadow = window.pageYOffset > 0 ? '0 4px 12px rgba(0,0,0,.06)' : 'none'; });
     }
-  </script>
 
+    /************ Language i18n ************/
+    const i18n = {
+      en: {
+        metaDescription: "Clarity LeadGen delivers AI‑powered B2B lead generation for SaaS & tech scale‑ups. More leads, predictable and at scale.",
+        pageTitle: "Clarity LeadGen – More B2B leads, predictable and at scale",
+        navOfferings: "Offerings",
+        navHow: "How it works",
+        navBenefits: "Benefits",
+        navUseCases: "Use cases",
+        navPricing: "Pricing",
+        navTestimonials: "Testimonials",
+        navContact: "Contact",
+        navCta: "Book intro",
+        heroBadge: "🚀 AI‑powered lead generation",
+        heroTitle: "More B2B leads, predictable and at scale.",
+        heroSubtitle: "Clarity LeadGen runs AI‑driven outbound prospecting with data, automation, and human creativity. You get a steady stream of qualified leads — you focus on closing.",
+        heroPrimaryCta: "Book a free intro call",
+        heroSecondaryCta: "How it works",
+        stat1Lbl: "More qualified leads",
+        stat2Lbl: "Time saved for sales",
+        stat3Lbl: "ROI within 6 months",
+        trustTitle: "Trusted by innovative companies",
+        offeringsTitle: "Our offerings",
+        offeringsIntro: "We blend smart tech with strategy so your sales team stops searching and starts selling.",
+        card1Title: "AI‑powered targeting",
+        card1Text: "We identify your ideal customer with data analysis and AI so you invest time in the right prospects.",
+        card2Title: "Automation + human touch",
+        card2Text: "Our campaigns combine smart automation with personal, relevant messaging that converts.",
+        card3Title: "Predictable lead flow",
+        card3Text: "No more guesswork. A consistent stream of qualified meetings on your calendar every month.",
+        howTitle: "How it works",
+        howIntro: "From strategy to scheduled meetings: our process in three steps.",
+        step1Title: "Kickoff",
+        step1Text: "We start with an intake: ICP, proposition, and channels. Together we define a sharp ICP and strategy.",
+        step2Title: "Campaign setup",
+        step2Text: "We source & enrich data, write personalized AI copy, set up automation (email + LinkedIn), and monitor performance.",
+        step3Title: "Leads on your calendar",
+        step3Text: "We qualify responses and book meetings directly. You focus on the calls; we build the pipeline.",
+        benefitsTitle: "Why CLG",
+        benefit1Title: "Consistent pipeline",
+        benefit1Text: "No more peaks and troughs. New qualified leads that match your ICP — every month.",
+        benefit2Title: "Efficient & time‑saving",
+        benefit2Text: "No scraping lists or writing cold emails. We take outbound completely off your plate.",
+        benefit3Title: "Personal & relevant",
+        benefit3Text: "Automation without spam: human‑sounding messaging that’s always tailored to the recipient.",
+        useTitle: "Use cases",
+        useIntro: "From startup to scale‑up: we work with companies eager to accelerate growth.",
+        use1Title: "SaaS startups",
+        use1Text: "Strong product, small sales engine. We build your first outbound motion and bring the first customers.",
+        use2Title: "International scale‑ups",
+        use2Text: "Entering new markets or verticals. We localize messaging, target the right accounts, and open doors.",
+        use3Title: "Complex B2B funnels",
+        use3Text: "Long cycles, many stakeholders? We nurture with multi‑touch campaigns until they’re ready to talk.",
+        pricingTitle: "Transparent pricing",
+        pricingIntro: "Pick the plan that fits your growth stage. Cancel monthly.",
+        price1Name: "Starter",
+        price1Period: "/month",
+        price1Cta: "Choose Starter",
+        price2Badge: "Most popular",
+        price2Name: "Growth",
+        price2Period: "/month",
+        price2Cta: "Choose Growth",
+        price3Name: "Enterprise",
+        price3Period: "/month",
+        price3Cta: "Choose Enterprise",
+        pricingNote: "💡 Curious what’s included? Book a free intro call and we’ll match the right plan to your goals.",
+        testTitle: "What clients say",
+        test1Quote: "CLG doubled our pipeline in 3 months. Automation with personalization really works.",
+        test2Quote: "We speak with new prospects every week, without doing cold outreach ourselves.",
+        contactTitle: "Ready for predictable lead generation?",
+        contactIntro: "Book a no‑strings intro call or send us a message.",
+        calendlyBtn: "📅 Book free intro",
+        calendlyNote: "Pick a time that works for you — we’ll come prepared.",
+        contactDivider: "or",
+        labelName: "Name *",
+        labelCompany: "Company *",
+        labelEmail: "Email *",
+        labelMessage: "Message",
+        contactSubmit: "Send",
+        formSuccessText: "✓ Thanks! We’ll get back within 24 hours.",
+        footerRights: "All rights reserved.",
+        footerPrivacy: "Privacy",
+        footerTerms: "Terms"
+      },
+      nl: {
+        metaDescription: "Clarity LeadGen verzorgt AI‑gedreven B2B leadgeneratie voor SaaS en tech scale‑ups. Meer leads, voorspelbaar en op schaal.",
+        pageTitle: "Clarity LeadGen – Meer B2B leads, voorspelbaar en op schaal",
+        navOfferings: "Aanbod",
+        navHow: "Hoe het werkt",
+        navBenefits: "Voordelen",
+        navUseCases: "Use cases",
+        navPricing: "Prijzen",
+        navTestimonials: "Testimonials",
+        navContact: "Contact",
+        navCta: "Plan intake",
+        heroBadge: "🚀 AI‑gedreven leadgeneratie",
+        heroTitle: "Meer B2B leads, voorspelbaar en op schaal.",
+        heroSubtitle: "Clarity LeadGen verzorgt AI‑gedreven outbound prospecting met data, automation én menselijke creativiteit. Zo krijg jij een continue stroom gekwalificeerde leads — en focus jij op closen.",
+        heroPrimaryCta: "Plan gratis intakegesprek",
+        heroSecondaryCta: "Hoe het werkt",
+        stat1Lbl: "Meer gekwalificeerde leads",
+        stat2Lbl: "Tijdsbesparing voor sales",
+        stat3Lbl: "ROI binnen 6 maanden",
+        trustTitle: "Vertrouwd door innovatieve bedrijven",
+        offeringsTitle: "Ons aanbod",
+        offeringsIntro: "We combineren slimme technologie met strategie, zodat jouw sales team niet langer op zoek hoeft naar leads.",
+        card1Title: "AI‑gedreven targeting",
+        card1Text: "We identificeren jouw ideale klant met data‑analyse en AI, zodat je tijd investeert in de juiste prospects.",
+        card2Title: "Automation + human touch",
+        card2Text: "Onze campagnes combineren slimme automation met persoonlijke, relevante messaging die converteert.",
+        card3Title: "Voorspelbare leadstroom",
+        card3Text: "Geen giswerk meer. Elke maand een consistente stroom gekwalificeerde afspraken in je agenda.",
+        howTitle: "Hoe het werkt",
+        howIntro: "Van strategie tot afspraak: ons proces in drie heldere stappen.",
+        step1Title: "Kickoff",
+        step1Text: "We starten met een intake: ICP, propositie en kanalen. Samen stellen we een scherp ICP en strategie op.",
+        step2Title: "Campagne opzetten",
+        step2Text: "We verzamelen en verrijken data, schrijven gepersonaliseerde AI‑copy, zetten automation op (e‑mail + LinkedIn) en monitoren performance.",
+        step3Title: "Leads in je agenda",
+        step3Text: "We kwalificeren responses en plannen afspraken direct in. Jij focust op de gesprekken; wij zorgen voor pipeline.",
+        benefitsTitle: "Waarom CLG",
+        benefit1Title: "Consistente pipeline",
+        benefit1Text: "Geen pieken en dalen. Elke maand nieuwe, gekwalificeerde leads die passen bij jouw ICP.",
+        benefit2Title: "Efficiënt & tijdsbesparend",
+        benefit2Text: "Geen lijsten scrapen of cold mails schrijven. Wij nemen outbound volledig uit handen.",
+        benefit3Title: "Persoonlijk & relevant",
+        benefit3Text: "Automation zonder spam: onze messaging voelt menselijk en is altijd toegespitst op de ontvanger.",
+        useTitle: "Use cases",
+        useIntro: "Van startup tot scale‑up: we werken met bedrijven die hun groei willen versnellen.",
+        use1Title: "SaaS‑startups",
+        use1Text: "Sterk product, nog geen grote salesmachine. Wij bouwen je eerste outbound‑engine en leveren de eerste klanten.",
+        use2Title: "Scale‑ups internationaal",
+        use2Text: "Nieuwe markten of verticals betreden. We lokaliseren messaging, targeten de juiste accounts en openen deuren.",
+        use3Title: "Complexe B2B funnels",
+        use3Text: "Lange salescycli, meerdere stakeholders? We nurturen met multi‑touch campagnes tot ze klaar zijn voor een gesprek.",
+        pricingTitle: "Transparante prijzen",
+        pricingIntro: "Kies het pakket dat past bij jouw groeifase. Maandelijks opzegbaar.",
+        price1Name: "Starter",
+        price1Period: "/maand",
+        price1Cta: "Kies Starter",
+        price2Badge: "Populairste keuze",
+        price2Name: "Growth",
+        price2Period: "/maand",
+        price2Cta: "Kies Growth",
+        price3Name: "Enterprise",
+        price3Period: "/maand",
+        price3Cta: "Kies Enterprise",
+        pricingNote: "💡 Wil je weten wat elk pakket bevat? Plan een gratis intake en we kiezen samen de beste optie.",
+        testTitle: "Wat klanten zeggen",
+        test1Quote: "CLG verdubbelde onze pipeline in 3 maanden. Automatisering mét personalisatie werkt écht.",
+        test2Quote: "We spreken nu elke week met nieuwe prospects, zonder zelf cold outreach te doen.",
+        contactTitle: "Klaar voor voorspelbare leadgeneratie?",
+        contactIntro: "Plan een vrijblijvend intakegesprek of stuur ons een bericht.",
+        calendlyBtn: "📅 Boek gratis intake",
+        calendlyNote: "Kies een moment dat jou uitkomt — we bereiden ons goed voor.",
+        contactDivider: "of",
+        labelName: "Naam *",
+        labelCompany: "Bedrijf *",
+        labelEmail: "E‑mail *",
+        labelMessage: "Bericht",
+        contactSubmit: "Versturen",
+        formSuccessText: "✓ Bedankt! We nemen binnen 24 uur contact op.",
+        footerRights: "Alle rechten voorbehouden.",
+        footerPrivacy: "Privacy",
+        footerTerms: "Voorwaarden"
+      }
+    };
+
+    let currentLang = 'en';
+    const btnEN = document.getElementById('btnEN');
+    const btnNL = document.getElementById('btnNL');
+
+    function applyLang(lang) {
+      const t = i18n[lang];
+      if (!t) return;
+      currentLang = lang;
+      localStorage.setItem('clg_lang', lang);
+      document.documentElement.lang = lang;
+      // Meta & title
+      document.getElementById('metaDescription').setAttribute('content', t.metaDescription);
+      document.getElementById('pageTitle').textContent = t.pageTitle;
+      // Simple map by ids
+      const ids = [
+        'navOfferings','navHow','navBenefits','navUseCases','navPricing','navTestimonials','navContact','navCta',
+        'heroBadge','heroTitle','heroSubtitle','heroPrimaryCta','heroSecondaryCta',
+        'stat1Lbl','stat2Lbl','stat3Lbl','trustTitle','offeringsTitle','offeringsIntro',
+        'card1Title','card1Text','card2Title','card2Text','card3Title','card3Text',
+        'howTitle','howIntro','step1Title','step1Text','step2Title','step2Text','step3Title','step3Text',
+        'benefitsTitle','benefit1Title','benefit1Text','benefit2Title','benefit2Text','benefit3Title','benefit3Text',
+        'useTitle','useIntro','use1Title','use1Text','use2Title','use2Text','use3Title','use3Text',
+        'pricingTitle','pricingIntro','price1Name','price1Period','price1Cta','price2Badge','price2Name','price2Period','price2Cta','price3Name','price3Period','price3Cta','pricingNote',
+        'testTitle','test1Quote','test2Quote',
+        'contactTitle','contactIntro','calendlyBtn','calendlyNote','contactDivider',
+        'labelName','labelCompany','labelEmail','labelMessage','contactSubmit','formSuccessText',
+        'footerRights','footerPrivacy','footerTerms'
+      ];
+      ids.forEach(id => { const el = document.getElementById(id); if (el && t[id] !== undefined) el.textContent = t[id]; });
+      // Toggle pressed state
+      btnEN.setAttribute('aria-pressed', lang === 'en');
+      btnNL.setAttribute('aria-pressed', lang === 'nl');
+    }
+
+    btnEN.addEventListener('click', () => applyLang('en'));
+    btnNL.addEventListener('click', () => applyLang('nl'));
+
+    // Init language: saved preference > default EN > browser hint
+    const saved = localStorage.getItem('clg_lang');
+    const browserIsNL = navigator.language && navigator.language.toLowerCase().startsWith('nl');
+    const initial = saved || 'en'; // as requested: EN default
+    applyLang(initial);
+  </script>
 </body>
 </html>
