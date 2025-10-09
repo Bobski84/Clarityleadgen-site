@@ -193,6 +193,29 @@
     .pricing-card__period{ font-size:18px; color:#64748b; margin-left:4px; }
     .pricing-card--featured .pricing-card__amount{ background: linear-gradient(135deg,#2563eb 0%,#10b981 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .pricing-note{ text-align:center; margin-top:48px; font-size:16px; color:#475569; max-width:700px; margin-left:auto; margin-right:auto; padding:20px; background: rgba(37,99,235,.05); border-radius:12px; border:1px solid rgba(37,99,235,.1); }
+    /* === Header fixes (override) === */
+.header__nav-list{ list-style:none; padding-left:0; }
+.header__nav-link{
+  text-decoration:none;
+  color:#475569;
+  white-space:nowrap;           /* voorkomt ‘Hoe / het / werkt’ op 3 regels */
+}
+.header__nav-link:visited{ color:#475569; }
+.header__nav-link:hover{ color:#2563eb; }
+.header__nav-link:focus-visible{ outline:2px solid #2563eb; outline-offset:4px; border-radius:4px; }
+
+/* Desktop: geen horizontale scroll, compactere layout */
+@media (min-width:1024px){
+  .header__nav{ display:flex; align-items:center; gap:12px; flex-wrap:nowrap; }
+  .header__nav-list{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:0; flex:1 1 auto; }
+  .header__nav .btn{ flex:0 0 auto; padding:12px 20px; }  /* compacte CTA */
+  .logo{ height:84px; }                                    /* iets compacter logo geeft ruimte */
+}
+
+/* Smalle desktops: iets kleinere menutekst om NL te laten passen op één regel */
+@media (min-width:1024px) and (max-width:1199px){
+  .header__nav-link{ font-size:13.5px; }
+}
   </style>
 </head>
 <body>
