@@ -39,7 +39,7 @@
 
     /* HEADER */
     .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e2e8f0; }
-    .header__container { display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1200px; margin:0 auto; gap:16px; }
+    .header__container { display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1200px; margin:0 auto; gap:12px; }
     @media (min-width:768px){ .header__container{ padding:20px 48px; } }
     .header__logo { display:inline-flex; align-items:center; font-weight:700; font-size:20px; z-index:1001; background: linear-gradient(135deg,#2563eb 0%,#10b981 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .logo { height: 90px; width:auto; display:block; }
@@ -58,18 +58,22 @@
 
     .header__nav { position:fixed; top:0; right:0; width:100%; height:100vh; background:#fff; padding:80px 24px 24px; transform: translateX(100%); transition: transform .3s ease; overflow-y:auto; }
     .header__nav.is-open { transform: translateX(0); }
-    @media (min-width:1024px){ .header__nav{ position:static; width:auto; height:auto; background:transparent; padding:0; transform:none; display:flex; align-items:center; gap:32px; } }
+    @media (min-width:1024px){ 
+      .header__nav{ position:static; width:auto; height:auto; background:transparent; padding:0; transform:none; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+    }
     .header__nav-list { display:flex; flex-direction:column; gap:24px; margin-bottom:32px; }
-    @media (min-width:1024px){ .header__nav-list{ flex-direction:row; gap:32px; margin-bottom:0; } }
-    .header__nav-link { font-size:18px; font-weight:500; color:#475569; transition: color .2s ease; display:block; }
+    @media (min-width:1024px){ .header__nav-list{ flex-direction:row; flex-wrap:wrap; gap:16px; margin-bottom:0; } }
+    $1  white-space: nowrap; }
     @media (min-width:1024px){ .header__nav-link{ font-size:15px; } }
     .header__nav-link:hover { color:#2563eb; }
 
     /* Language switcher */
-    .lang-switch { display:flex; align-items:center; gap:8px; }
-    .lang-btn { display:inline-flex; align-items:center; gap:6px; font-size:14px; padding:8px 12px; border:1px solid #e2e8f0; border-radius:999px; background:#fff; cursor:pointer; }
-    .lang-btn[aria-pressed="true"] { border-color:#2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.15); }
-    .flag { font-size:16px; line-height:1; }
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,1,1);white-space:nowrap;border:0;}
+    .lang-switch{display:flex;align-items:center;gap:8px}
+    .lang-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid #e2e8f0;border-radius:999px;background:#fff;cursor:pointer}
+    @media(min-width:1280px){.lang-btn{width:38px;height:38px}}
+    .lang-btn[aria-pressed="true"]{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+    .flag{font-size:18px;line-height:1}
 
     /* HERO */
     .hero { padding:100px 0 80px; text-align:center; background: linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 50%,#dbeafe 100%); position:relative; overflow:hidden; }
@@ -215,8 +219,8 @@
         </ul>
         <a href="#contact" class="btn btn--primary" id="navCta">Book intro</a>
         <div class="lang-switch" role="group" aria-label="Language switcher">
-          <button class="lang-btn" id="btnEN" aria-pressed="true"><span class="flag">🇬🇧</span> EN</button>
-          <button class="lang-btn" id="btnNL" aria-pressed="false"><span class="flag">🇳🇱</span> NL</button>
+          <button class="lang-btn" id="btnEN" aria-pressed="true"><span class="flag" aria-hidden="true">🇬🇧</span><span class="sr-only">English</span></button>
+          <button class="lang-btn" id="btnNL" aria-pressed="false"><span class="flag" aria-hidden="true">🇳🇱</span><span class="sr-only">Nederlands</span></button>
         </div>
       </nav>
     </div>
@@ -746,20 +750,17 @@
       // Meta & title
       document.getElementById('metaDescription').setAttribute('content', t.metaDescription);
       document.getElementById('pageTitle').textContent = t.pageTitle;
-      // Simple map by ids
+      // Map ids to text
       const ids = [
         'navOfferings','navHow','navBenefits','navUseCases','navPricing','navTestimonials','navContact','navCta',
-        'heroBadge','heroTitle','heroSubtitle','heroPrimaryCta','heroSecondaryCta',
-        'stat1Lbl','stat2Lbl','stat3Lbl','trustTitle','offeringsTitle','offeringsIntro',
-        'card1Title','card1Text','card2Title','card2Text','card3Title','card3Text',
+        'heroBadge','heroTitle','heroSubtitle','heroPrimaryCta','heroSecondaryCta','stat1Lbl','stat2Lbl','stat3Lbl','trustTitle',
+        'offeringsTitle','offeringsIntro','card1Title','card1Text','card2Title','card2Text','card3Title','card3Text',
         'howTitle','howIntro','step1Title','step1Text','step2Title','step2Text','step3Title','step3Text',
         'benefitsTitle','benefit1Title','benefit1Text','benefit2Title','benefit2Text','benefit3Title','benefit3Text',
         'useTitle','useIntro','use1Title','use1Text','use2Title','use2Text','use3Title','use3Text',
         'pricingTitle','pricingIntro','price1Name','price1Period','price1Cta','price2Badge','price2Name','price2Period','price2Cta','price3Name','price3Period','price3Cta','pricingNote',
-        'testTitle','test1Quote','test2Quote',
-        'contactTitle','contactIntro','calendlyBtn','calendlyNote','contactDivider',
-        'labelName','labelCompany','labelEmail','labelMessage','contactSubmit','formSuccessText',
-        'footerRights','footerPrivacy','footerTerms'
+        'testTitle','test1Quote','test2Quote','contactTitle','contactIntro','calendlyBtn','calendlyNote','contactDivider',
+        'labelName','labelCompany','labelEmail','labelMessage','contactSubmit','formSuccessText','footerRights','footerPrivacy','footerTerms'
       ];
       ids.forEach(id => { const el = document.getElementById(id); if (el && t[id] !== undefined) el.textContent = t[id]; });
       // Toggle pressed state
@@ -770,10 +771,9 @@
     btnEN.addEventListener('click', () => applyLang('en'));
     btnNL.addEventListener('click', () => applyLang('nl'));
 
-    // Init language: saved preference > default EN > browser hint
+    // Init language: saved preference > default EN
     const saved = localStorage.getItem('clg_lang');
-    const browserIsNL = navigator.language && navigator.language.toLowerCase().startsWith('nl');
-    const initial = saved || 'en'; // as requested: EN default
+    const initial = saved || 'en';
     applyLang(initial);
   </script>
 </body>
