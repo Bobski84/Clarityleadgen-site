@@ -28,7 +28,7 @@
     .section__intro--light { color: rgba(255,255,255,0.9); }
 
     /* BUTTONS */
-    .btn { display: inline-block; padding: 14px 32px; font-size: 16px; font-weight: 600; text-align: center; border-radius: 8px; transition: all .3s ease; white-space: nowrap; border: 2px solid transparent; }
+    .btn { display: inline-block; padding: 14px 32px; font-size: 16px; font-weight: 600; text-align: center; border-radius: 8px; transition: all .3s ease; white-space: nowrap; border: 2px solid transparent; text-decoration:none; }
     .btn--large { padding: 18px 40px; font-size: 18px; }
     .btn--primary { background: linear-gradient(135deg,#2563eb 0%,#1d4ed8 100%); color:#fff; box-shadow: 0 4px 14px rgba(37,99,235,.3); }
     .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,99,235,.4); }
@@ -39,7 +39,7 @@
 
     /* HEADER */
     .header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.95); backdrop-filter: blur(10px); border-bottom: 1px solid #e2e8f0; }
-    .header__container { display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1200px; margin:0 auto; gap:12px; }
+    .header__container { display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1200px; margin:0 auto; gap:16px; }
     @media (min-width:768px){ .header__container{ padding:20px 48px; } }
     .header__logo { display:inline-flex; align-items:center; font-weight:700; font-size:20px; z-index:1001; background: linear-gradient(135deg,#2563eb 0%,#10b981 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .logo { height: 90px; width:auto; display:block; }
@@ -58,22 +58,22 @@
 
     .header__nav { position:fixed; top:0; right:0; width:100%; height:100vh; background:#fff; padding:80px 24px 24px; transform: translateX(100%); transition: transform .3s ease; overflow-y:auto; }
     .header__nav.is-open { transform: translateX(0); }
-    @media (min-width:1024px){ 
-      .header__nav{ position:static; width:auto; height:auto; background:transparent; padding:0; transform:none; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-    }
-    .header__nav-list { display:flex; flex-direction:column; gap:24px; margin-bottom:32px; }
-    @media (min-width:1024px){ .header__nav-list{ flex-direction:row; flex-wrap:wrap; gap:16px; margin-bottom:0; } }
-    $1  white-space: nowrap; }
-    @media (min-width:1024px){ .header__nav-link{ font-size:15px; } }
+    @media (min-width:1024px){ .header__nav{ position:static; width:auto; height:auto; background:transparent; padding:0; transform:none; display:flex; align-items:center; gap:24px; flex-wrap:wrap; } }
+    .header__nav-list { display:flex; flex-direction:column; gap:24px; margin-bottom:32px; list-style:none; padding-left:0; }
+    @media (min-width:1024px){ .header__nav-list{ flex-direction:row; flex-wrap:wrap; gap:16px; margin-bottom:0; flex:1 1 auto; } }
+    .header__nav-link { font-size:18px; font-weight:500; color:#475569; transition: color .2s ease; display:block; text-decoration:none; white-space:nowrap; }
+    @media (min-width:1024px){ .header__nav-link{ font-size:14px; } }
+    .header__nav-link:visited { color:#475569; }
     .header__nav-link:hover { color:#2563eb; }
+    .header__nav-link:focus-visible { outline:2px solid #2563eb; outline-offset:4px; border-radius:4px; }
 
-    /* Language switcher */
+    /* Language switcher (compact EN/NL badges) */
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,1,1);white-space:nowrap;border:0;}
     .lang-switch{display:flex;align-items:center;gap:8px}
-    .lang-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid #e2e8f0;border-radius:999px;background:#fff;cursor:pointer}
-    @media(min-width:1280px){.lang-btn{width:38px;height:38px}}
+    .lang-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid #e2e8f0;border-radius:999px;background:#fff;cursor:pointer}
+    @media(min-width:1280px){.lang-btn{width:34px;height:34px}}
     .lang-btn[aria-pressed="true"]{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
-    .flag{font-size:18px;line-height:1}
+    .flag{font-size:12px;line-height:1;font-weight:700;letter-spacing:.3px}
 
     /* HERO */
     .hero { padding:100px 0 80px; text-align:center; background: linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 50%,#dbeafe 100%); position:relative; overflow:hidden; }
@@ -101,7 +101,7 @@
     .trust-logos { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:40px; opacity:.6; }
     .trust-logo { font-size:24px; font-weight:700; color:#94a3b8; }
 
-    /* CARDS/SECTIONS kept from your original styles ... */
+    /* SECTIONS */
     .section--aanbod{ background:#fff; }
     .cards{ display:grid; gap:32px; grid-template-columns:1fr; }
     @media (min-width:768px){ .cards{ grid-template-columns: repeat(3,1fr); gap:32px; } }
@@ -193,29 +193,6 @@
     .pricing-card__period{ font-size:18px; color:#64748b; margin-left:4px; }
     .pricing-card--featured .pricing-card__amount{ background: linear-gradient(135deg,#2563eb 0%,#10b981 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
     .pricing-note{ text-align:center; margin-top:48px; font-size:16px; color:#475569; max-width:700px; margin-left:auto; margin-right:auto; padding:20px; background: rgba(37,99,235,.05); border-radius:12px; border:1px solid rgba(37,99,235,.1); }
-    /* === Header fixes (override) === */
-.header__nav-list{ list-style:none; padding-left:0; }
-.header__nav-link{
-  text-decoration:none;
-  color:#475569;
-  white-space:nowrap;           /* voorkomt ‘Hoe / het / werkt’ op 3 regels */
-}
-.header__nav-link:visited{ color:#475569; }
-.header__nav-link:hover{ color:#2563eb; }
-.header__nav-link:focus-visible{ outline:2px solid #2563eb; outline-offset:4px; border-radius:4px; }
-
-/* Desktop: geen horizontale scroll, compactere layout */
-@media (min-width:1024px){
-  .header__nav{ display:flex; align-items:center; gap:12px; flex-wrap:nowrap; }
-  .header__nav-list{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:0; flex:1 1 auto; }
-  .header__nav .btn{ flex:0 0 auto; padding:12px 20px; }  /* compacte CTA */
-  .logo{ height:84px; }                                    /* iets compacter logo geeft ruimte */
-}
-
-/* Smalle desktops: iets kleinere menutekst om NL te laten passen op één regel */
-@media (min-width:1024px) and (max-width:1199px){
-  .header__nav-link{ font-size:13.5px; }
-}
   </style>
 </head>
 <body>
