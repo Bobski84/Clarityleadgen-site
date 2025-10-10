@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Clarity LeadGen delivers AI‑powered B2B lead generation for SaaS & tech scale‑ups. More leads, predictable and at scale." id="metaDescription" />
+  <meta name="description" content="Clarity LeadGen delivers AI-powered B2B lead generation for SaaS & tech scale-ups. More leads, predictable and at scale." id="metaDescription" />
   <title id="pageTitle">Clarity LeadGen – More B2B leads, predictable and at scale</title>
   <style>
     /* RESET & BASE */
@@ -134,18 +134,9 @@
     .usecases{ display:grid; gap:32px; grid-template-columns:1fr; }
     @media (min-width:768px){ .usecases{ grid-template-columns: repeat(3,1fr); gap:32px; } }
     .usecase{ background:#fff; padding:36px 28px; border-radius:12px; border-left:5px solid #10b981; box-shadow:0 4px 12px rgba(0,0,0,.05); transition: all .3s ease; }
-    .usecase:hover{ transform: translateX(4px); box-shadow:0 8px 24px rgba(0,0,0,.08); }
+    .usecase:hover{ transform: translateX(4px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
     .usecase__title{ font-size:20px; font-weight:700; margin-bottom:12px; color:#0f172a; }
     .usecase__text{ font-size:16px; line-height:1.7; color:#64748b; }
-
-    .section--testimonials{ background:#fff; }
-    .testimonials{ display:grid; gap:40px; grid-template-columns:1fr; }
-    @media (min-width:768px){ .testimonials{ grid-template-columns: repeat(2,1fr); gap:48px; } }
-    .testimonial{ background: linear-gradient(135deg,#fefce8 0%,#fef3c7 100%); padding:40px 36px; border-radius:16px; border:1px solid #fde68a; position:relative; }
-    .testimonial::before{ content:'"'; position:absolute; top:20px; left:24px; font-size:80px; color:#fbbf24; opacity:.3; line-height:1; font-family: Georgia, serif; }
-    .testimonial__quote{ font-size:17px; line-height:1.7; color:#1a1a1a; margin-bottom:24px; position:relative; z-index:1; }
-    .testimonial__author{ font-size:15px; color:#78716c; font-style:normal; }
-    .testimonial__author strong{ color:#0f172a; font-weight:700; display:block; margin-bottom:4px; }
 
     .section--contact{ background: linear-gradient(135deg,#0f172a 0%,#1e293b 100%); color:#fff; position:relative; overflow:hidden; }
     .section--contact::before{ content:""; position:absolute; top:0; left:0; right:0; bottom:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity:.5; }
@@ -213,7 +204,8 @@
           <li><a href="#testimonials" class="header__nav-link" id="navTestimonials">Testimonials</a></li>
           <li><a href="#contact" class="header__nav-link" id="navContact">Contact</a></li>
         </ul>
-        <a href="#contact" class="btn btn--primary" id="navCta">Book intro</a>
+        <!-- CTA goes to Calendly -->
+        <a href="https://calendly.com/bmarcus-clarityleadgen/30min" class="btn btn--primary" id="navCta" target="_blank" rel="noopener">Book intro</a>
         <div class="lang-switch" role="group" aria-label="Language switcher">
           <button class="lang-btn" id="btnEN" aria-pressed="true"><span class="flag" aria-hidden="true">EN</span><span class="sr-only">English</span></button>
           <button class="lang-btn" id="btnNL" aria-pressed="false"><span class="flag" aria-hidden="true">NL</span><span class="sr-only">Nederlands</span></button>
@@ -225,11 +217,12 @@
   <!-- HERO -->
   <section class="hero" id="hero">
     <div class="container hero__container">
-      <div class="hero__badge" id="heroBadge">🚀 AI‑powered lead generation</div>
+      <div class="hero__badge" id="heroBadge">🚀 AI-powered lead generation</div>
       <h1 class="hero__title" id="heroTitle">More B2B leads, predictable and at scale.</h1>
-      <p class="hero__subtitle" id="heroSubtitle">Clarity LeadGen runs AI‑driven outbound prospecting with data, automation, and human creativity. You get a steady stream of qualified leads — you focus on closing.</p>
+      <p class="hero__subtitle" id="heroSubtitle">Clarity LeadGen runs AI-driven outbound prospecting with data, automation, and human creativity. You get a steady stream of qualified leads — you focus on closing.</p>
       <div class="hero__cta">
-        <a href="#contact" class="btn btn--primary btn--large" id="heroPrimaryCta">Book a free intro call</a>
+        <!-- Primary CTA goes to Calendly -->
+        <a href="https://calendly.com/bmarcus-clarityleadgen/30min" class="btn btn--primary btn--large" id="heroPrimaryCta" target="_blank" rel="noopener">Book a free intro call</a>
         <a href="#hoe" class="btn btn--secondary btn--large" id="heroSecondaryCta">How it works</a>
       </div>
 
@@ -272,7 +265,7 @@
       <div class="cards">
         <article class="card">
           <div class="card__icon" aria-hidden="true">🎯</div>
-          <h3 class="card__title" id="card1Title">AI‑powered targeting</h3>
+          <h3 class="card__title" id="card1Title">AI-powered targeting</h3>
           <p class="card__text" id="card1Text">We identify your ideal customer with data analysis and AI so you invest time in the right prospects.</p>
         </article>
         <article class="card">
@@ -326,13 +319,13 @@
         </article>
         <article class="benefit">
           <div class="benefit__icon" aria-hidden="true">⏱️</div>
-          <h3 class="benefit__title" id="benefit2Title">Efficient & time‑saving</h3>
+          <h3 class="benefit__title" id="benefit2Title">Efficient & time-saving</h3>
           <p class="benefit__text" id="benefit2Text">No scraping lists or writing cold emails. We take outbound completely off your plate.</p>
         </article>
         <article class="benefit">
           <div class="benefit__icon" aria-hidden="true">💬</div>
           <h3 class="benefit__title" id="benefit3Title">Personal & relevant</h3>
-          <p class="benefit__text" id="benefit3Text">Automation without spam: human‑sounding messaging that’s always tailored to the recipient.</p>
+          <p class="benefit__text" id="benefit3Text">Automation without spam: human-sounding messaging that’s always tailored to the recipient.</p>
         </article>
       </div>
     </div>
@@ -342,19 +335,19 @@
   <section class="section section--usecases" id="usecases">
     <div class="container">
       <h2 class="section__title" id="useTitle">Use cases</h2>
-      <p class="section__intro" id="useIntro">From startup to scale‑up: we work with companies eager to accelerate growth.</p>
+      <p class="section__intro" id="useIntro">From startup to scale-up: we work with companies eager to accelerate growth.</p>
       <div class="usecases">
         <article class="usecase">
           <h3 class="usecase__title" id="use1Title">SaaS startups</h3>
           <p class="usecase__text" id="use1Text">Strong product, small sales engine. We build your first outbound motion and bring the first customers.</p>
         </article>
         <article class="usecase">
-          <h3 class="usecase__title" id="use2Title">International scale‑ups</h3>
+          <h3 class="usecase__title" id="use2Title">International scale-ups</h3>
           <p class="usecase__text" id="use2Text">Entering new markets or verticals. We localize messaging, target the right accounts, and open doors.</p>
         </article>
         <article class="usecase">
           <h3 class="usecase__title" id="use3Title">Complex B2B funnels</h3>
-          <p class="usecase__text" id="use3Text">Long cycles, many stakeholders? We nurture with multi‑touch campaigns until they’re ready to talk.</p>
+          <p class="usecase__text" id="use3Text">Long cycles, many stakeholders? We nurture with multi-touch campaigns until they’re ready to talk.</p>
         </article>
       </div>
     </div>
@@ -373,7 +366,7 @@
             <span class="pricing-card__amount">3.000</span>
             <span class="pricing-card__period" id="price1Period">/month</span>
           </div>
-          <a href="#contact" class="btn btn--secondary btn--large" id="price1Cta">Choose Starter</a>
+          <a href="https://calendly.com/bmarcus-clarityleadgen/30min" class="btn btn--secondary btn--large" id="price1Cta" target="_blank" rel="noopener">Choose Starter</a>
         </article>
         <article class="pricing-card pricing-card--featured">
           <div class="pricing-card__badge" id="price2Badge">Most popular</div>
@@ -383,7 +376,7 @@
             <span class="pricing-card__amount">5.000</span>
             <span class="pricing-card__period" id="price2Period">/month</span>
           </div>
-          <a href="#contact" class="btn btn--primary btn--large" id="price2Cta">Choose Growth</a>
+          <a href="https://calendly.com/bmarcus-clarityleadgen/30min" class="btn btn--primary btn--large" id="price2Cta" target="_blank" rel="noopener">Choose Growth</a>
         </article>
         <article class="pricing-card">
           <h3 class="pricing-card__name" id="price3Name">Enterprise</h3>
@@ -392,7 +385,7 @@
             <span class="pricing-card__amount">8.000</span>
             <span class="pricing-card__period" id="price3Period">/month</span>
           </div>
-          <a href="#contact" class="btn btn--success btn--large" id="price3Cta">Choose Enterprise</a>
+          <a href="https://calendly.com/bmarcus-clarityleadgen/30min" class="btn btn--success btn--large" id="price3Cta" target="_blank" rel="noopener">Choose Enterprise</a>
         </article>
       </div>
       <p class="pricing-note" id="pricingNote">💡 Curious what’s included? Book a free intro call and we’ll match the right plan to your goals.</p>
@@ -426,10 +419,11 @@
   <section class="section section--contact" id="contact">
     <div class="container">
       <h2 class="section__title section__title--light" id="contactTitle">Ready for predictable lead generation?</h2>
-      <p class="section__intro section__intro--light" id="contactIntro">Book a no‑strings intro call or send us a message.</p>
+      <p class="section__intro section__intro--light" id="contactIntro">Book a no-strings intro call or send us a message.</p>
       <div class="contact__content">
         <div class="contact__calendly">
-          <button class="btn btn--success btn--large" id="calendlyBtn">📅 Book free intro</button>
+          <!-- Contact CTA goes to Calendly -->
+          <a class="btn btn--success btn--large" id="calendlyBtn" href="https://calendly.com/bmarcus-clarityleadgen/30min" target="_blank" rel="noopener">📅 Book free intro</a>
           <p class="contact__note" id="calendlyNote">Pick a time that works for you — we’ll come prepared.</p>
         </div>
         <div class="contact__divider" aria-hidden="true" id="contactDivider">or</div>
@@ -449,6 +443,20 @@
           <div class="form__group">
             <label for="message" class="form__label" id="labelMessage">Message</label>
             <textarea id="message" name="message" class="form__textarea" rows="4"></textarea>
+          </div>
+          <!-- NEW: Phone field -->
+          <div class="form__group">
+            <label for="phone" class="form__label" id="labelPhone">Phone</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form__input"
+              inputmode="tel"
+              autocomplete="tel"
+              pattern="^[0-9+().\\-\\s]{6,}$"
+              placeholder="+31 6 12345678"
+            />
           </div>
           <button type="submit" class="btn btn--success btn--large" id="contactSubmit">Send</button>
           <div class="form__success" id="formSuccess"><p id="formSuccessText">✓ Thanks! We’ll get back within 24 hours.</p></div>
@@ -511,14 +519,6 @@
       });
     });
 
-    /************ Calendly & Chat placeholders ************/
-    const calendlyBtn = document.getElementById('calendlyBtn');
-    if (calendlyBtn) {
-      calendlyBtn.addEventListener('click', () => {
-        alert('🗓️ Calendly popup would open here. Replace with your real link.');
-      });
-    }
-   
     /************ Contact form (Formspree) ************/
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
@@ -532,8 +532,8 @@
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
         if (!name || !company || !email) { alert(currentLang === 'nl' ? 'Vul alle verplichte velden in.' : 'Please fill all required fields.'); return; }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) { alert(currentLang === 'nl' ? 'Voer een geldig e‑mailadres in.' : 'Enter a valid email address.'); return; }
+        const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+        if (!emailRegex.test(email)) { alert(currentLang === 'nl' ? 'Voer een geldig e-mailadres in.' : 'Enter a valid email address.'); return; }
         try {
           const resp = await fetch(contactForm.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(contactForm) });
           if (resp.ok) {
@@ -559,7 +559,7 @@
     /************ Language i18n ************/
     const i18n = {
       en: {
-        metaDescription: "Clarity LeadGen delivers AI‑powered B2B lead generation for SaaS & tech scale‑ups. More leads, predictable and at scale.",
+        metaDescription: "Clarity LeadGen delivers AI-powered B2B lead generation for SaaS & tech scale-ups. More leads, predictable and at scale.",
         pageTitle: "Clarity LeadGen – More B2B leads, predictable and at scale",
         navOfferings: "Offerings",
         navHow: "How it works",
@@ -569,9 +569,9 @@
         navTestimonials: "Testimonials",
         navContact: "Contact",
         navCta: "Book intro",
-        heroBadge: "🚀 AI‑powered lead generation",
+        heroBadge: "🚀 AI-powered lead generation",
         heroTitle: "More B2B leads, predictable and at scale.",
-        heroSubtitle: "Clarity LeadGen runs AI‑driven outbound prospecting with data, automation, and human creativity. You get a steady stream of qualified leads — you focus on closing.",
+        heroSubtitle: "Clarity LeadGen runs AI-driven outbound prospecting with data, automation, and human creativity. You get a steady stream of qualified leads — you focus on closing.",
         heroPrimaryCta: "Book a free intro call",
         heroSecondaryCta: "How it works",
         stat1Lbl: "More qualified leads",
@@ -580,7 +580,7 @@
         trustTitle: "Trusted by innovative companies",
         offeringsTitle: "Our offerings",
         offeringsIntro: "We blend smart tech with strategy so your sales team stops searching and starts selling.",
-        card1Title: "AI‑powered targeting",
+        card1Title: "AI-powered targeting",
         card1Text: "We identify your ideal customer with data analysis and AI so you invest time in the right prospects.",
         card2Title: "Automation + human touch",
         card2Text: "Our campaigns combine smart automation with personal, relevant messaging that converts.",
@@ -597,18 +597,18 @@
         benefitsTitle: "Why CLG",
         benefit1Title: "Consistent pipeline",
         benefit1Text: "No more peaks and troughs. New qualified leads that match your ICP — every month.",
-        benefit2Title: "Efficient & time‑saving",
+        benefit2Title: "Efficient & time-saving",
         benefit2Text: "No scraping lists or writing cold emails. We take outbound completely off your plate.",
         benefit3Title: "Personal & relevant",
-        benefit3Text: "Automation without spam: human‑sounding messaging that’s always tailored to the recipient.",
+        benefit3Text: "Automation without spam: human-sounding messaging that’s always tailored to the recipient.",
         useTitle: "Use cases",
-        useIntro: "From startup to scale‑up: we work with companies eager to accelerate growth.",
+        useIntro: "From startup to scale-up: we work with companies eager to accelerate growth.",
         use1Title: "SaaS startups",
         use1Text: "Strong product, small sales engine. We build your first outbound motion and bring the first customers.",
-        use2Title: "International scale‑ups",
+        use2Title: "International scale-ups",
         use2Text: "Entering new markets or verticals. We localize messaging, target the right accounts, and open doors.",
+        use3Text: "Long cycles, many stakeholders? We nurture with multi-touch campaigns until they’re ready to talk.",
         use3Title: "Complex B2B funnels",
-        use3Text: "Long cycles, many stakeholders? We nurture with multi‑touch campaigns until they’re ready to talk.",
         pricingTitle: "Transparent pricing",
         pricingIntro: "Pick the plan that fits your growth stage. Cancel monthly.",
         price1Name: "Starter",
@@ -626,7 +626,7 @@
         test1Quote: "CLG doubled our pipeline in 3 months. Automation with personalization really works.",
         test2Quote: "We speak with new prospects every week, without doing cold outreach ourselves.",
         contactTitle: "Ready for predictable lead generation?",
-        contactIntro: "Book a no‑strings intro call or send us a message.",
+        contactIntro: "Book a no-strings intro call or send us a message.",
         calendlyBtn: "📅 Book free intro",
         calendlyNote: "Pick a time that works for you — we’ll come prepared.",
         contactDivider: "or",
@@ -634,6 +634,7 @@
         labelCompany: "Company *",
         labelEmail: "Email *",
         labelMessage: "Message",
+        labelPhone: "Phone",
         contactSubmit: "Send",
         formSuccessText: "✓ Thanks! We’ll get back within 24 hours.",
         footerRights: "All rights reserved.",
@@ -641,7 +642,7 @@
         footerTerms: "Terms"
       },
       nl: {
-        metaDescription: "Clarity LeadGen verzorgt AI‑gedreven B2B leadgeneratie voor SaaS en tech scale‑ups. Meer leads, voorspelbaar en op schaal.",
+        metaDescription: "Clarity LeadGen verzorgt AI-gedreven B2B leadgeneratie voor SaaS en tech scale-ups. Meer leads, voorspelbaar en op schaal.",
         pageTitle: "Clarity LeadGen – Meer B2B leads, voorspelbaar en op schaal",
         navOfferings: "Aanbod",
         navHow: "Hoe het werkt",
@@ -651,9 +652,9 @@
         navTestimonials: "Testimonials",
         navContact: "Contact",
         navCta: "Plan intake",
-        heroBadge: "🚀 AI‑gedreven leadgeneratie",
+        heroBadge: "🚀 AI-gedreven leadgeneratie",
         heroTitle: "Meer B2B leads, voorspelbaar en op schaal.",
-        heroSubtitle: "Clarity LeadGen verzorgt AI‑gedreven outbound prospecting met data, automation én menselijke creativiteit. Zo krijg jij een continue stroom gekwalificeerde leads — en focus jij op closen.",
+        heroSubtitle: "Clarity LeadGen verzorgt AI-gedreven outbound prospecting met data, automation én menselijke creativiteit. Zo krijg jij een continue stroom gekwalificeerde leads — en focus jij op closen.",
         heroPrimaryCta: "Plan gratis intakegesprek",
         heroSecondaryCta: "Hoe het werkt",
         stat1Lbl: "Meer gekwalificeerde leads",
@@ -662,8 +663,8 @@
         trustTitle: "Vertrouwd door innovatieve bedrijven",
         offeringsTitle: "Ons aanbod",
         offeringsIntro: "We combineren slimme technologie met strategie, zodat jouw sales team niet langer op zoek hoeft naar leads.",
-        card1Title: "AI‑gedreven targeting",
-        card1Text: "We identificeren jouw ideale klant met data‑analyse en AI, zodat je tijd investeert in de juiste prospects.",
+        card1Title: "AI-gedreven targeting",
+        card1Text: "We identificeren jouw ideale klant met data-analyse en AI, zodat je tijd investeert in de juiste prospects.",
         card2Title: "Automation + human touch",
         card2Text: "Onze campagnes combineren slimme automation met persoonlijke, relevante messaging die converteert.",
         card3Title: "Voorspelbare leadstroom",
@@ -673,7 +674,7 @@
         step1Title: "Kickoff",
         step1Text: "We starten met een intake: ICP, propositie en kanalen. Samen stellen we een scherp ICP en strategie op.",
         step2Title: "Campagne opzetten",
-        step2Text: "We verzamelen en verrijken data, schrijven gepersonaliseerde AI‑copy, zetten automation op (e‑mail + LinkedIn) en monitoren performance.",
+        step2Text: "We verzamelen en verrijken data, schrijven gepersonaliseerde AI-copy, zetten automation op (e-mail + LinkedIn) en monitoren performance.",
         step3Title: "Leads in je agenda",
         step3Text: "We kwalificeren responses en plannen afspraken direct in. Jij focust op de gesprekken; wij zorgen voor pipeline.",
         benefitsTitle: "Waarom CLG",
@@ -684,13 +685,13 @@
         benefit3Title: "Persoonlijk & relevant",
         benefit3Text: "Automation zonder spam: onze messaging voelt menselijk en is altijd toegespitst op de ontvanger.",
         useTitle: "Use cases",
-        useIntro: "Van startup tot scale‑up: we werken met bedrijven die hun groei willen versnellen.",
-        use1Title: "SaaS‑startups",
-        use1Text: "Sterk product, nog geen grote salesmachine. Wij bouwen je eerste outbound‑engine en leveren de eerste klanten.",
-        use2Title: "Scale‑ups internationaal",
+        useIntro: "Van startup tot scale-up: we werken met bedrijven die hun groei willen versnellen.",
+        use1Title: "SaaS-startups",
+        use1Text: "Sterk product, nog geen grote salesmachine. Wij bouwen je eerste outbound-engine en leveren de eerste klanten.",
+        use2Title: "Scale-ups internationaal",
         use2Text: "Nieuwe markten of verticals betreden. We lokaliseren messaging, targeten de juiste accounts en openen deuren.",
         use3Title: "Complexe B2B funnels",
-        use3Text: "Lange salescycli, meerdere stakeholders? We nurturen met multi‑touch campagnes tot ze klaar zijn voor een gesprek.",
+        use3Text: "Lange salescycli, meerdere stakeholders? We nurturen met multi-touch campagnes tot ze klaar zijn voor een gesprek.",
         pricingTitle: "Transparante prijzen",
         pricingIntro: "Kies het pakket dat past bij jouw groeifase. Maandelijks opzegbaar.",
         price1Name: "Starter",
@@ -714,8 +715,9 @@
         contactDivider: "of",
         labelName: "Naam *",
         labelCompany: "Bedrijf *",
-        labelEmail: "E‑mail *",
+        labelEmail: "E-mail *",
         labelMessage: "Bericht",
+        labelPhone: "Telefoon",
         contactSubmit: "Versturen",
         formSuccessText: "✓ Bedankt! We nemen binnen 24 uur contact op.",
         footerRights: "Alle rechten voorbehouden.",
@@ -747,7 +749,7 @@
         'useTitle','useIntro','use1Title','use1Text','use2Title','use2Text','use3Title','use3Text',
         'pricingTitle','pricingIntro','price1Name','price1Period','price1Cta','price2Badge','price2Name','price2Period','price2Cta','price3Name','price3Period','price3Cta','pricingNote',
         'testTitle','test1Quote','test2Quote','contactTitle','contactIntro','calendlyBtn','calendlyNote','contactDivider',
-        'labelName','labelCompany','labelEmail','labelMessage','contactSubmit','formSuccessText','footerRights','footerPrivacy','footerTerms'
+        'labelName','labelCompany','labelEmail','labelMessage','labelPhone','contactSubmit','formSuccessText','footerRights','footerPrivacy','footerTerms'
       ];
       ids.forEach(id => { const el = document.getElementById(id); if (el && t[id] !== undefined) el.textContent = t[id]; });
       // Toggle pressed state
