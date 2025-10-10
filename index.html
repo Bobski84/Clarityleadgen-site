@@ -357,7 +357,7 @@
   <section class="section section--pricing" id="pricing">
     <div class="container">
       <h2 class="section__title" id="pricingTitle">Transparent pricing</h2>
-      <p class="section__intro" id="pricingIntro">Pick the plan that fits your growth stage. Cancel monthly.</p>
+    <p class="section__intro" id="pricingIntro">Pick the plan that fits your growth stage. Cancel monthly.</p>
       <div class="pricing-cards">
         <article class="pricing-card">
           <h3 class="pricing-card__name" id="price1Name">Starter</h3>
@@ -427,7 +427,9 @@
           <p class="contact__note" id="calendlyNote">Pick a time that works for you — we’ll come prepared.</p>
         </div>
         <div class="contact__divider" aria-hidden="true" id="contactDivider">or</div>
-        <form class="contact__form" id="contactForm" action="https://formspree.io/f/xovknney" method="POST">
+
+        <!-- VARIANT B: AJAX → MAKE WEBHOOK + REDIRECT -->
+        <form class="contact__form" id="contactForm" action="" method="POST" novalidate>
           <div class="form__group">
             <label for="name" class="form__label" id="labelName">Name *</label>
             <input type="text" id="name" name="name" class="form__input" required />
@@ -444,7 +446,7 @@
             <label for="message" class="form__label" id="labelMessage">Message</label>
             <textarea id="message" name="message" class="form__textarea" rows="4"></textarea>
           </div>
-          <!-- NEW: Phone field -->
+          <!-- Phone -->
           <div class="form__group">
             <label for="phone" class="form__label" id="labelPhone">Phone</label>
             <input
@@ -454,10 +456,22 @@
               class="form__input"
               inputmode="tel"
               autocomplete="tel"
-              pattern="^[0-9+().\\-\\s]{6,}$"
+              pattern="^[0-9+().\s-]{6,}$"
               placeholder="+31 6 12345678"
             />
           </div>
+
+          <!-- Hidden context fields (auto-filled by JS) -->
+          <input type="hidden" name="source" value="Website Contact Form">
+          <input type="hidden" name="page_url" value="">
+          <input type="hidden" name="utm_source" value="">
+          <input type="hidden" name="utm_medium" value="">
+          <input type="hidden" name="utm_campaign" value="">
+          <input type="hidden" name="utm_term" value="">
+          <input type="hidden" name="utm_content" value="">
+          <!-- Honeypot (leave empty) -->
+          <input type="text" name="hp" tabindex="-1" autocomplete="off" style="display:none">
+
           <button type="submit" class="btn btn--success btn--large" id="contactSubmit">Send</button>
           <div class="form__success" id="formSuccess"><p id="formSuccessText">✓ Thanks! We’ll get back within 24 hours.</p></div>
         </form>
@@ -519,30 +533,77 @@
       });
     });
 
-    /************ Contact form (Formspree) ************/
+    /************ Contact form → Make webhook (Variant B) ************/
+    const MAKE_HOOK = "https://hook.eu2.make.com/opau7jewxxh2ymrc2tnhui8rrx51wgiy";
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
+    const submitBtn = document.getElementById('contactSubmit');
+
+    // Prefill page_url & UTM params
+    (function prefillContext() {
+      if (!contactForm) return;
+      const params = new URLSearchParams(location.search);
+      const set = (name, value) => {
+        const el = contactForm.querySelector(`[name="${name}"]`);
+        if (el) el.value = value || "";
+      };
+      set('page_url', location.href);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(k => set(k, params.get(k)));
+    })();
+
     if (contactForm) {
       contactForm.addEventListener('submit', async (e) => {
-        const handleViaJS = true; // set false to let browser submit
-        if (!handleViaJS) return;
         e.preventDefault();
+
+        // Honeypot
+        const hp = contactForm.querySelector('input[name="hp"]');
+        if (hp && hp.value) return; // likely bot
+
+        // Basic validation
         const name = document.getElementById('name').value.trim();
         const company = document.getElementById('company').value.trim();
         const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-        if (!name || !company || !email) { alert(currentLang === 'nl' ? 'Vul alle verplichte velden in.' : 'Please fill all required fields.'); return; }
-        const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
-        if (!emailRegex.test(email)) { alert(currentLang === 'nl' ? 'Voer een geldig e-mailadres in.' : 'Enter a valid email address.'); return; }
+        const phone = document.getElementById('phone') ? document.getElementById('phone').value.trim() : "";
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[0-9+().\s-]{6,}$/;
+
+        if (!name || !company || !email) {
+          alert(currentLang === 'nl' ? 'Vul alle verplichte velden in.' : 'Please fill all required fields.');
+          return;
+        }
+        if (!emailRegex.test(email)) {
+          alert(currentLang === 'nl' ? 'Voer een geldig e-mailadres in.' : 'Enter a valid email address.');
+          return;
+        }
+        if (phone && !phoneRegex.test(phone)) {
+          alert(currentLang === 'nl' ? 'Voer een geldig telefoonnummer in.' : 'Enter a valid phone number.');
+          return;
+        }
+
+        // Submit to Make
+        submitBtn.disabled = true;
+        submitBtn.textContent = currentLang === 'nl' ? 'Verzenden…' : 'Sending…';
+
         try {
-          const resp = await fetch(contactForm.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(contactForm) });
-          if (resp.ok) {
+          const data = new FormData(contactForm);
+          const res = await fetch(MAKE_HOOK, { method: 'POST', body: data });
+          if (!res.ok) throw new Error('Request failed');
+
+          // Optional inline success flash (in case redirect is delayed)
+          if (formSuccess) {
             formSuccess.style.display = 'block';
-            contactForm.reset();
             formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            setTimeout(() => { formSuccess.style.display = 'none'; }, 5000);
-          } else { alert(currentLang === 'nl' ? 'Er ging iets mis bij het versturen. Probeer het later opnieuw.' : 'Something went wrong. Please try again later.'); }
-        } catch (err) { alert(currentLang === 'nl' ? 'Netwerkfout. Controleer je verbinding en probeer opnieuw.' : 'Network error. Check your connection and try again.'); }
+          }
+
+          // Redirect to thank-you page
+          window.location.href = '/bedankt.html';
+        } catch (err) {
+          alert(currentLang === 'nl'
+            ? 'Er ging iets mis bij het versturen. Probeer het later opnieuw.'
+            : 'Something went wrong. Please try again later.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = (currentLang === 'nl') ? 'Versturen' : 'Send';
+        }
       });
     }
 
@@ -755,6 +816,9 @@
       // Toggle pressed state
       btnEN.setAttribute('aria-pressed', lang === 'en');
       btnNL.setAttribute('aria-pressed', lang === 'nl');
+      // Update submit button text if it was changed during a failed send
+      const submitBtn = document.getElementById('contactSubmit');
+      if (submitBtn) submitBtn.textContent = t.contactSubmit;
     }
 
     btnEN.addEventListener('click', () => applyLang('en'));
